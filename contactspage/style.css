@@ -1,0 +1,340 @@
+body {
+  background-image: url("landing.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  animation: moveIt 2000s linear infinite;
+  overflow: hidden;
+}
+
+@keyframes moveIt {
+  from {
+    background-position: 0 0;
+  }
+  /*use negative width if you want it to flow right to left else and positive for left to right*/
+  to {
+    background-position: -10000px 0;
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent black */
+  backdrop-filter: blur(155px); /* Apply blur to the background */
+  z-index: 1;
+}
+
+/*  Start of Table section */
+table {
+  color: white;
+  font-size: 30px;
+  position: relative;
+  width: 50%;
+  margin-left: 30%;
+  vertical-align: middle;
+  background-color: rgba(217, 31, 214, 0.179);
+  backdrop-filter: blur(10px);
+  filter: brightness(120%);
+  overflow: hidden;
+}
+
+tbody > tr > td {
+  border: 1px solid white;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.fixed_header {
+  width: 600px;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.fixed_header tbody {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  height: 500px;
+}
+
+.fixed_header thead tr {
+  display: block;
+}
+
+.fixed_header thead {
+  background: rgba(28, 48, 107, 0.647);
+  color: #fff;
+}
+
+.fixed_header th,
+.fixed_header td {
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+}
+/* End of table section */
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  width: 250px;
+  height: 60px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  color: #fff;
+  background-color: rgba(188, 165, 248, 0.288);
+  backdrop-filter: brightness(120%);
+  outline: solid 1px white;
+  cursor: pointer;
+  z-index: 0;
+  position: relative;
+  left: 2%;
+  top: 30px;
+  margin: 6px;
+  box-shadow: 0 0 30px 1px #ffffffa6;
+}
+
+.open-button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 50px;
+}
+
+.open-button:active {
+  color: #ffffff;
+}
+
+.open-button:active:after {
+  background: transparent;
+}
+
+.open-button:hover:before {
+  opacity: 1;
+}
+
+.open-button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(182, 152, 255, 0.24);
+  left: 0;
+  top: 0;
+  border-radius: 50px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 1px solid #f1f1f1;
+  border-radius: 15px;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 500px;
+  height: 600px;
+  padding: 10px;
+  background-color: rgba(132, 0, 255, 0.205);
+  backdrop-filter: blur(11px);
+  -webkit-backdrop-filter: blur(11px);
+  border-radius: 15px;
+  box-shadow: 0 0 60px 1px #ffffff7a;
+}
+
+/* Full-width input fields */
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container input[type="firstname"],
+.form-container input[type="lastname"] {
+  width: 90%;
+  padding: 20px;
+  margin: 6px 0 30px 0;
+  position: relative;
+  left: 20px;
+  top: 20px;
+  border: none;
+  border-radius: 15px;
+  background: #f1f1f1e1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type="text"]:focus,
+.form-container
+  input[type="number"]:focus
+  .form-container
+  input[type="firstname"],
+.form-container input[type="lastname"] {
+  border-radius: 15px;
+  background: #f1f1f1e1;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  width: 250px;
+  height: 60px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  color: #fff;
+  background-color: rgba(188, 165, 248, 0.288);
+  backdrop-filter: brightness(120%);
+  outline: solid 1px white;
+  cursor: pointer;
+  z-index: 0;
+  position: relative;
+  left: 25%;
+  top: 30px;
+  margin: 6px;
+  box-shadow: 0 0 30px 1px #ffffffa6;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: rgba(255, 0, 0, 0.411);
+  position: relative;
+}
+
+.form-container#blur.active {
+  filter: blur(20px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.form-container .btn:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 50px;
+}
+
+.form-container .btn:active {
+  color: #ffffff;
+}
+
+.form-container .btn:active:after {
+  background: transparent;
+}
+
+.form-container .btn:hover:before {
+  opacity: 1;
+}
+
+.form-container .btn:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(182, 152, 255, 0.24);
+  left: 0;
+  top: 0;
+  border-radius: 50px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); /* Semi-transparent black */
+  z-index: 2; /* Place it above the background */
+  display: none; /* Initially hidden */
+  opacity: 0; /* Initially transparent */
+  transition: opacity 1s ease-in; /* Add a transition for opacity */
+  backdrop-filter: blur(15px); /* Adjust the blur amount as needed */
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1; /* Make it fully opaque when active */
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel ="stylesheet" href="style.css">
+      <script src="script.js" defer></script>
+      <title>Contacts</title>
+  </head>
+  <body>
+      <div class="overlay" id="overlay"></div>
+      <button class="open-button" onclick="openForm()">Add Contact</button> 
+
+      <div class="form-popup" id="myForm">
+
+        <form action="action_page.php" class="form-container">
+          <input type="firstname" placeholder="Enter First Name" name="firstname" required id="fName">
+          <input type="lastname" placeholder="Enter Last Name" name="lastname" required id="lName">
+          <input type="text" placeholder="Enter Email" name="email" required id="email">
+          <input type="number" placeholder="Enter Phone Number" name="psw" required id="phoneNumber">
+          <button type="submit" class="btn" onclick="addContact()">Add Contact</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+          <div id="overlay" class="overlay"></div>
+        </form>
+      </div>
+
+      <table class ="fixed_header" id ="dataTable">
+        <thead>
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Email</td>
+                <td>Phone</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>hello world</td>
+                <td>hello world</td>
+                <td>hello world</td>
+                <td>hello world</td>
+            </tr>
+            <tr>
+                <td>hello world</td>
+                <td>hello world</td>
+                <td>hello world</td>
+                <td>hello world</td>
+            </tr>
+        </tbody>
+    </table>
+  </body>
+</html>
