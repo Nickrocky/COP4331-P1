@@ -44,17 +44,18 @@ body {
   filter: brightness(0) invert(1) blur(20px);
   -webkit-filter: brightness(0) invert(1) blur(20px);
   opacity: 1;
+  animation: blurAnimation 1s linear infinite alternate; 
 }
 
-img.image2:hover {
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  filter: brightness(0) invert(1) blur(40px);
-  -webkit-filter: brightness(0) invert(1) blur(40px);
-  opacity: 1;
+@keyframes blurAnimation {
+  0% {
+    filter: brightness(0) invert(1) blur(10px);
+    -webkit-filter: brightness(0) invert(1) blur(10px);
+  }
+  100% {
+    filter: brightness(0) invert(1) blur(40px); 
+    -webkit-filter: brightness(0) invert(1) blur(40px);
+  }
 }
 
 .sign-up-buttons {
