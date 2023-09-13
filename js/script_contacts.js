@@ -107,6 +107,9 @@ function editContact(button) {
   });
 }
 
+var form = document.getElementById("myForm");
+var openButton = document.getElementById("openButton");
+
 function openForm() {
   document.getElementById("myForm").style.display = "block";
   var overlay = document.getElementById("overlay");
