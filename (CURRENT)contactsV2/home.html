@@ -1,0 +1,75 @@
+<html>
+	
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>COP 4331 LAMP Stack Demo</title>
+		<script type="text/javascript" src="js/md5.js"></script>
+		<script type="text/javascript" src="js/code.js"></script>
+		<link href="styles_home.css" rel="stylesheet">	
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	</head>
+	<body>
+		<div>
+			<button type="button" class="sign-up-buttons" onclick="doLogin();">GitHub</button>
+		</div>
+		<div class="site-logo">
+			<img class = "image1" src="/logo.png" alt="logo">
+			<img class = "image2" src="/logo.png" alt="logo">
+		  </div>
+	
+
+
+		<!-- LOGIN & REGISTERATION FEATURES -->
+		 <div class="container">
+ 
+			<!-- upper button section to select
+				 the login or signup form -->
+			<div class="slider"></div>
+			<div class="btn">
+				<button class="login">Login</button>
+				<button class="register">Register</button>
+			</div>
+	 
+			<!-- Form section that contains the
+				 login and the signup form -->
+			<div class="form-section">
+				<form action="Login.php" class="form-container"></form>
+				<!-- login form -->
+				<div class="login-box">
+					<input type="email"
+						   class="email ele"
+						   placeholder="youremail@email.com">
+					<input type="password"
+						   class="password ele"
+						   placeholder="password">
+					<button class="clkbtn">Login</button>
+				</div>
+			</form>
+
+			<form action="Signup.php" class="form-container"></form>
+				<!-- signup form -->
+				<div class="signup-box">
+					<input type="text"
+						   class="name ele"
+						   placeholder="Enter your name">
+					<input type="email"
+						   class="email ele"
+						   placeholder="example@email.com">
+					<input type="password"
+						   class="password ele"
+						   placeholder="password">
+					<input type="password"
+						   class="password ele"
+						   placeholder="Confirm password">
+					<button class="clkbtn">Register</button>
+				</div>
+			</form>
+			</div>
+		</div>
+		<script src="index_home.js"></script>
+
+	
+	</body>
+</html>
