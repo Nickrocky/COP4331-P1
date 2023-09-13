@@ -5,7 +5,49 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 
-function doSignup() {}
+function doSignup() {
+  firstName = document.getElementById("fName").value;
+  lastName = document.getElementById("lName").value;
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+
+  document.getElementById("signupResult").innerHTML = "";
+
+  let tmp = {
+    firstName: firstName,
+    lastName: lastName,
+    login: username,
+    password: password,
+  };
+
+  let jsonPayload = JSON.stringify(tmp);
+  let url = urlBase + "/Signup." + extension;
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+  try {
+    xhr.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        let jsonObject = JSON.parse(xhr.responseText);
+        userId = jsonObject.id;
+
+        document.getElementById("signupResult").innerHTML =
+          "Account Successfully Created";
+
+        firstName = jsonObject.firstName;
+        lastName = jsonObject.lastName;
+        saveCookie();
+      } else if (this.readyState == 4 && this.status == 409) {
+        document.getElementById("User already exists");
+        return;
+      }
+    };
+    xhr.send(jsonPayload);
+  } catch (err) {
+    document.getElementById("signupResult").innerHTML = err.message;
+  }
+}
 
 function doLogin() {
   userId = 0;

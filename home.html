@@ -29,6 +29,11 @@
       <img class="image2" src="images/logo.png" alt="logo" />
     </div>
 
+    <!-- text displays above logincard to
+        tell users if login/signup was valid-->
+    <div id="loginResult"></div>
+    <div id="signupResult"></div>
+
     <!-- LOGIN & REGISTERATION FEATURES -->
     <div class="container">
       <!-- upper button section to select
@@ -45,27 +50,30 @@
         <!-- login form -->
         <form class="login-box">
           <input
-            type="email"
-            class="email ele"
-            placeholder="youremail@email.com"
+            type="text"
+            id="loginName"
+            class="ele"
+            placeholder="Username"
           />
-          <input type="password" class="password ele" placeholder="password" />
+          <input
+            type="password"
+            id="loginPassword"
+            class="ele"
+            placeholder="Password"
+          />
           <button class="clkbtn" onclick="doLogin()">Login</button>
         </form>
 
         <!-- signup form -->
         <form class="signup-box">
-          <input type="text" class="name ele" placeholder="Enter your name" />
-          <input
-            type="email"
-            class="email ele"
-            placeholder="example@email.com"
-          />
-          <input type="password" class="password ele" placeholder="password" />
+          <input type="text" id="fName" class="ele" placeholder="First Name" />
+          <input type="text" id="lName" class="ele" placeholder="Last Name" />
+          <input type="text" id="username" class="ele" placeholder="Username" />
           <input
             type="password"
-            class="password ele"
-            placeholder="Confirm password"
+            id="password"
+            class="ele"
+            placeholder="Password"
           />
           <button class="clkbtn" onclick="doSignup()">Register</button>
         </form>
