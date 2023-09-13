@@ -110,13 +110,20 @@ function editContact(button) {
 function openForm() {
   document.getElementById("myForm").style.display = "block";
   var overlay = document.getElementById("overlay");
-  overlay.classList.add("active"); // Add the active class to show the overlay with an ease-in effect
+  overlay.classList.add("active"); 
+
+  form.classList.toggle("slide-in");
+  form.style.display = form.classList.contains("slide-in") ? "block" : "none";
+  openButton.textContent = form.classList.contains("slide-in") ? "Close Form" : "Open Form";
+
 }
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
   var overlay = document.getElementById("overlay");
-  overlay.classList.remove("active"); // Remove the active class to hide the overlay with an ease-in effect
+  overlay.classList.remove("active"); 
+  form.classList.remove("slide-in");
+  form.style.display = "none";
 }
 
 // search contact feature
