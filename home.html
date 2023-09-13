@@ -43,24 +43,18 @@
 				 login and the signup form -->
       <div class="form-section">
         <!-- login form -->
-        <form action="LAMPAPI/Login.php" method="get" class="login-box">
+        <form class="login-box">
           <input
             type="email"
             class="email ele"
             placeholder="youremail@email.com"
           />
           <input type="password" class="password ele" placeholder="password" />
-          <button
-            class="clkbtn"
-            onclick="location.href = 'contacts.html'"
-            onclick="doLogin()"
-          >
-            Login
-          </button>
+          <button class="clkbtn" onclick="doLogin()">Login</button>
         </form>
 
         <!-- signup form -->
-        <form action="LAMPAPI/Signup.php" method="get" class="signup-box">
+        <form class="signup-box">
           <input type="text" class="name ele" placeholder="Enter your name" />
           <input
             type="email"
@@ -73,7 +67,7 @@
             class="password ele"
             placeholder="Confirm password"
           />
-          <button class="clkbtn" onclick="saveCookie()">Register</button>
+          <button class="clkbtn" onclick="doSignup()">Register</button>
         </form>
       </div>
     </div>

@@ -1,9 +1,11 @@
-const urlBase = "http://138.197.64.137/LAMPAPI/";
+const urlBase = "http://138.197.64.137/LAMPAPI";
 const extension = "php";
 
 let userId = 0;
 let firstName = "";
 let lastName = "";
+
+function doSignup() {}
 
 function doLogin() {
   userId = 0;
@@ -42,7 +44,7 @@ function doLogin() {
 
         saveCookie();
 
-        window.location.href = "color.html";
+        window.location.href = "contacts.html";
       }
     };
     xhr.send(jsonPayload);

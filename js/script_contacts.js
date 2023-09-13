@@ -119,28 +119,23 @@ function closeForm() {
   overlay.classList.remove("active"); // Remove the active class to hide the overlay with an ease-in effect
 }
 
-function logout() {}
-
 // search contact feature
-function searchContact(){
-
+function searchContact() {
   var input, filter, tr, td, i, txtValue;
   input = document.getElementById("mySearchInput");
   filter = input.value.toUpperCase();
   tr = table.getElementsByTagName("tr");
-  
 
   //traverse through rows & hide non matches
-  for(i=0; i<tr.length; i++){
-    td = tr[i].getElementsByTagName("td")[2]; //search by email 
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2]; //search by email
 
-    if(td){
+    if (td) {
       txtValue = td.textContent || td.innerText;
 
-      if(txtValue.toUpperCase().indexOf(filter) > -1){
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
-      } 
-      else {
+      } else {
         tr[i].style.display = "none";
       }
     }
@@ -148,31 +143,25 @@ function searchContact(){
   closeSearchForm();
 }
 
-
 function openSearchForm() {
-
   document.getElementById("mySearchForm").style.display = "block";
   var overlay = document.getElementById("overlay");
   overlay.classList.add("active"); // Add the active class to show the overlay with an ease-in effect
 }
 
-
 function closeSearchForm() {
-
   document.getElementById("mySearchForm").style.display = "none";
   var overlay = document.getElementById("overlay");
   overlay.classList.remove("active"); // Remove the active class to hide the overlay with an ease-in effect
 }
 
-
-// clear search button 
-function clearContactSearch(){
-
+// clear search button
+function clearContactSearch() {
   var tr, i;
   tr = table.getElementsByTagName("tr");
-  
+
   //clear matches & return to original table
-  for(i=0; i<tr.length; i++){
+  for (i = 0; i < tr.length; i++) {
     tr[i].style.display = "";
   }
 }
