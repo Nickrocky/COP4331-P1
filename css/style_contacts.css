@@ -1,5 +1,5 @@
 body {
-  background-image: url("../images/contacts.jpg");
+  background-image: url("contacts.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -70,7 +70,7 @@ thead {
 thead tr {
   display: block;
   width: 70%;
-  padding: 10px;
+  padding: 10px; 
 }
 
 tbody {
@@ -111,8 +111,8 @@ td {
   cursor: pointer;
   z-index: 0;
   position: relative;
-  left: 71%;
-  top: 30px;
+  left: 64%;
+  top: 40px;
   margin: 6px;
   box-shadow: 0 0 30px 1px #ffffffa6;
 }
@@ -349,12 +349,12 @@ td {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 .overlay.active {
@@ -389,12 +389,10 @@ td {
     45deg,
     #ff0000,
     #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
+    #420707,
+    #ad1919,
+    #ff0062,
+    #ff0000,
     #ff0000
   );
   position: absolute;
@@ -451,15 +449,341 @@ td {
 
 .editable-input {
   height: 50px;
-  width: 255px;
-  /*controls width of user box*/
-  outline: none;
-  border: none;
-  color: rgb(77, 77, 77);
-  /*text color*/
-  background-color: rgba(19, 8, 49, 0.849);
-  border-radius: 10px;
-  font-size: 18px;
+	width: 255px;
+	/*controls width of user box*/
+	outline: none;
+	border: none;
+	color: rgb(77, 77, 77);
+	/*text color*/
+	background-color: rgba(19, 8, 49, 0.849);
+	border-radius: 10px;
+	font-size: 18px;
   padding-left: 10px;
-  color: rgba(255, 255, 255, 0.685);
+  color:rgba(255, 255, 255, 0.685);
+}
+
+/* search button */
+.search-button {
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+  padding-left: 25px;
+  width: 500px;
+  height: 60px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  color: #fff;
+  background-color: rgba(182, 152, 255, 0.24);
+  backdrop-filter: brightness(120%);
+  outline: solid 1px white;
+  cursor: pointer;
+  z-index: 0;
+  position: relative;
+  left: 9%;
+  top: 40px;
+  margin: 6px;
+  box-shadow: 0 0 30px 1px #ffffffa6;
+}
+
+.search-button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 50px;
+}
+
+.search-button:active {
+  color: #ffffff;
+}
+
+.search-button:active:after {
+  background: transparent;
+}
+
+.search-button:hover:before {
+  opacity: 1;
+}
+
+.search-button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(182, 152, 255, 0.24);
+  left: 0;
+  top: 0;
+  border-radius: 50px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* clear search button */
+.clearSearch-button {
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  width: 250px;
+  height: 60px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  color: #fff;
+  background-color: rgba(255, 0, 0, 0.432);
+  backdrop-filter: brightness(120%);
+  outline: solid 1px white;
+  cursor: pointer;
+  z-index: 0;
+  position: absolute;
+  left: 50%;
+  top: 47px;
+  margin: 6px;
+  box-shadow: 0 0 30px 1px #ffffffa6;
+}
+
+.clearSearch-button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #420707,
+    #ad1919,
+    #ff0062,
+    #ff0000,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 50px;
+}
+
+.clearSearch-button:active {
+  color: #ffffff;
+}
+
+.clearSearch-button:active:after {
+  background: transparent;
+}
+
+.clearSearch-button:hover:before {
+  opacity: 1;
+}
+
+.clearSearch-button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(182, 152, 255, 0.24);
+  left: 0;
+  top: 0;
+  border-radius: 50px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.form-popup2 {
+  display: none;
+  position: absolute;
+  top: 65%;
+  margin-top: -300px;
+  left: 50%;
+  margin-left: -300px;
+  border: 1px solid #f1f1f1;
+  border-radius: 15px;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container2 {
+  max-width: 500px;
+  height: 300px;
+  padding: 10px;
+  background-color: rgba(132, 0, 255, 0.205);
+  backdrop-filter: blur(11px);
+  -webkit-backdrop-filter: blur(11px);
+  border-radius: 15px;
+  box-shadow: 0 0 60px 1px #ffffff7a;
+}
+
+/* Full-width input fields */
+.form-container2 input[type="text"],
+.form-container2 input[type="number"],
+.form-container2 input[type="firstname"],
+.form-container2 input[type="lastname"] {
+  width: 90%;
+  padding: 20px;
+  margin: 6px 0 30px 0;
+  position: relative;
+  left: 20px;
+  top: 20px;
+  border: none;
+  border-radius: 15px;
+  background: #f1f1f1e1;
+}
+
+/* When the inputs get focus, do something */
+.form-container2 input[type="text"]:focus,
+.form-container2 input[type="number"]:focus,
+.form-container2 input[type="firstname"]:focus,
+.form-container2 input[type="lastname"]:focus {
+  border-radius: 15px;
+  background: #f1f1f1e1;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container2 .btn {
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  width: 250px;
+  height: 60px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  color: #fff;
+  background-color: rgba(248, 165, 165, 0.288);
+  backdrop-filter: brightness(120%);
+  outline: solid 1px white;
+  cursor: pointer;
+  z-index: 0;
+  position: relative;
+  left: 25%;
+  top: 20px;
+  margin: 6px;
+  box-shadow: 0 0 30px 1px #ffffffa6;
+}
+
+/* Add a red background color to the cancel button */
+.form-container2 .cancel {
+  background-color: rgba(255, 0, 0, 0.411);
+  position: relative;
+}
+
+.form-container2#blur.active {
+  filter: blur(20px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.form-container2 .btn:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 50px;
+}
+
+.form-container2 .btn:active {
+  color: #ffffff;
+}
+
+.form-container2 .btn:active:after {
+  background: transparent;
+}
+
+.form-container2 .btn:hover:before {
+  opacity: 1;
+}
+
+.form-container2 .btn:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(182, 152, 255, 0.24);
+  left: 0;
+  top: 0;
+  border-radius: 50px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
 }
