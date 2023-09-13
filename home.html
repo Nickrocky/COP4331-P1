@@ -5,18 +5,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>COP 4331 LAMP Stack Demo</title>
+		
 		<script type="text/javascript" src="js/md5.js"></script>
 		<script type="text/javascript" src="js/code.js"></script>
-		<link href="styles_home.css" rel="stylesheet">	
+		<link href="css/styles_home.css" rel="stylesheet">	
 		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+		<script src="js/index_home.js" defer></script> 
 	</head>
 	<body>
 		<div>
 			<button type="button" class="sign-up-buttons" onclick="doLogin();">GitHub</button>
 		</div>
 		<div class="site-logo">
-			<img class = "image1" src="logo.png" alt="logo">
-			<img class = "image2" src="logo.png" alt="logo">
+			<img class = "image1" src="images/logo.png" alt="logo">
+			<img class = "image2" src="images/logo.png" alt="logo">
 		  </div>
 	
 
@@ -36,7 +38,7 @@
 				 login and the signup form -->
 			<div class="form-section">
 				<!-- login form -->
-				<form action="Login.php" method="get" class="login-box">
+				<form action="LAMPAPI/Login.php" method="get" class="login-box">
 					<input type="email"
 						   class="email ele"
 						   placeholder="youremail@email.com">
@@ -48,7 +50,7 @@
 			
 
 				<!-- signup form -->
-				<form action="Signup.php" method="get" class="signup-box">
+				<form action="LAMPAPI/Signup.php" method="get" class="signup-box">
 					<input type="text"
 						   class="name ele"
 						   placeholder="Enter your name">
@@ -65,7 +67,7 @@
 				</form>
 			</div>
 		</div>
-		<script src="index_home.js"></script>
+
 
 	
 	</body>
