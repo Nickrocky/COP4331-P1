@@ -5,6 +5,7 @@ body {
 	background-size: cover;
 	background-attachment: fixed;
 	animation: moveIt 1200s linear infinite;
+	overflow: hidden;
 }
 
 @keyframes moveIt {
