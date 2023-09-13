@@ -1,5 +1,5 @@
 body {
-  background-image: url("../images/contacts.jpg");
+  background-image: url("contacts.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -53,12 +53,8 @@ table {
   font-family: "Poppins", sans-serif;
 }
 
-th {
-  text-align: center;
-  vertical-align: middle;
-}
-
 thead {
+  width: 70%;
   background: rgba(11, 23, 58, 0.647);
   color: #fff;
   font-size: 30px;
@@ -70,7 +66,7 @@ thead {
 thead tr {
   display: block;
   width: 70%;
-  padding: 10px;
+  padding: 10px; /* Adjust the padding to control spacing */
 }
 
 tbody {
@@ -79,12 +75,10 @@ tbody {
   overflow: auto;
   height: 500px;
   text-overflow: clip;
-  font-size: 20px;
-  font-family: "Poppins", sans-serif;
 }
 
 tbody td {
-  outline: 1px solid rgba(255, 255, 255, 0.281);
+  outline: 1px solid white;
   text-align: center;
   vertical-align: middle;
 }
@@ -92,7 +86,7 @@ tbody td {
 td {
   padding: 10px;
   text-align: center;
-  width: 267px;
+  width: 250px;
 }
 /* End of table section */
 
@@ -344,17 +338,17 @@ td {
   z-index: 2; /* Place it above the background */
   display: none; /* Initially hidden */
   opacity: 0; /* Initially transparent */
-  animation: fadeIn 1.3s ease both;
+  animation: fadeIn 1s ease both;
   backdrop-filter: blur(20px); /* Adjust the blur amount as needed */
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 .overlay.active {
@@ -449,17 +443,125 @@ td {
   }
 }
 
-.editable-input {
-  height: 50px;
-  width: 255px;
-  /*controls width of user box*/
-  outline: none;
+
+/* search button */
+.search-button {
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  width: 250px;
+  height: 60px;
   border: none;
-  color: rgb(77, 77, 77);
-  /*text color*/
-  background-color: rgba(19, 8, 49, 0.849);
-  border-radius: 10px;
-  font-size: 18px;
-  padding-left: 10px;
-  color: rgba(255, 255, 255, 0.685);
+  border-radius: 50px;
+  outline: none;
+  color: #fff;
+  background-color: rgba(182, 152, 255, 0.24);
+  backdrop-filter: brightness(120%);
+  outline: solid 1px white;
+  cursor: pointer;
+  z-index: 0;
+  position: relative;
+  left: 21%;
+  top: 30px;
+
+  margin: 6px;
+  box-shadow: 0 0 30px 1px #ffffffa6;
 }
+
+.search-button:active {
+  color: #ffffff;
+}
+
+.search-button:active:after {
+  background: transparent;
+}
+
+.search-button:hover:before {
+  opacity: 1;
+}
+
+.search-button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(182, 152, 255, 0.24);
+  left: 0;
+  top: 0;
+  border-radius: 50px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+} 
+
+/* clear search button */
+.clearSearch-button {
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  width: 250px;
+  height: 60px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  color: #fff;
+  background-color: rgba(255, 0, 0, 0.432);
+  backdrop-filter: brightness(120%);
+  outline: solid 1px white;
+  cursor: pointer;
+  z-index: 0;
+  position: absolute;
+  left: 25%;
+  bottom: 0;
+
+  margin: 6px;
+  box-shadow: 0 0 30px 1px #ffffffa6;
+}
+
+.clearSearch-button:active {
+  color: #ffffff;
+}
+
+.clearSearch-button:active:after {
+  background: transparent;
+}
+
+.clearSearch-button:hover:before {
+  opacity: 1;
+}
+
+.clearSearch-button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(182, 152, 255, 0.24);
+  left: 0;
+  top: 0;
+  border-radius: 50px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+} 
