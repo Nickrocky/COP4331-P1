@@ -1,61 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel ="stylesheet" href="css/style_contacts.css">
-      <script src="js/script_contacts.js" defer></script>
-      <title>Contacts</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style_contacts.css" />
+    <script src="js/script_contacts.js" defer></script>
+    <title>Contacts</title>
   </head>
   <body>
-  
-      <div class="overlay" id="overlay"></div>
+    <div class="overlay" id="overlay"></div>
 
-      <button class="open-button" onclick="openForm()">Add Contact</button> 
+    <button class="open-button" onclick="openForm()">Add Contact</button>
 
-      <div class="form-popup" id="myForm">
-        <form action="AddContact.php" method="get" class="form-container">
-          <input type="firstname" placeholder="Enter First Name" name="firstname" required id="fName">
-          <input type="lastname" placeholder="Enter Last Name" name="lastname" required id="lName">
-          <input type="text" placeholder="Enter Email" name="email" required id="email">
-          <input type="number" placeholder="Enter Phone Number" name="psw" required id="phoneNumber">
-          <button type="submit" class="btn" onclick="addContact()">Add Contact</button>
-          <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-          <div id="overlay" class="overlay"></div>
-        </form>
-      </div>
+    <div class="form-popup" id="myForm">
+      <form action="LAMPAPI/AddContact.php" method="get" class="form-container">
+        <input
+          type="firstname"
+          placeholder="Enter First Name"
+          name="firstname"
+          required
+          id="fName"
+        />
+        <input
+          type="lastname"
+          placeholder="Enter Last Name"
+          name="lastname"
+          required
+          id="lName"
+        />
+        <input
+          type="text"
+          placeholder="Enter Email"
+          name="email"
+          required
+          id="email"
+        />
+        <input
+          type="number"
+          placeholder="Enter Phone Number"
+          name="psw"
+          required
+          id="phoneNumber"
+        />
+        <button type="submit" class="btn" onclick="addContact()">
+          Add Contact
+        </button>
+        <button type="button" class="btn cancel" onclick="closeForm()">
+          Cancel
+        </button>
+        <div id="overlay" class="overlay"></div>
+      </form>
+    </div>
 
-       <!-- search contact feature -->
-     <button class="search-button" onclick="openSearchForm()">Search Contact...</button> 
-     <button class="clearSearch-button" id="clear" onclick="clearContactSearch()">Clear Search</button> 
+    <!-- search contact feature -->
+    <button class="search-button" onclick="openSearchForm()">
+      Search Contact...
+    </button>
+    <button
+      class="clearSearch-button"
+      id="clear"
+      onclick="clearContactSearch()"
+    >
+      Clear Search
+    </button>
 
-     <div class="form-popup2" id="mySearchForm">
-       <form action="SearchContact.php" method="get" class="form-container2">
-        <input type="text" id="mySearchInput" placeholder="Enter email here...">
-         <button type="submit" class="btn" onclick="searchContact()">Search Contact</button>
-         <button type="button" class="btn cancel" onclick="closeSearchForm()">Cancel</button>
-         <div id="overlay" class="overlay"></div>
-       </form>
-     </div>
+    <div class="form-popup2" id="mySearchForm">
+      <form
+        action="LAMPAPI/SearchContact.php"
+        method="get"
+        class="form-container2"
+      >
+        <input
+          type="text"
+          id="mySearchInput"
+          placeholder="Enter email here..."
+        />
+        <button type="submit" class="btn" onclick="searchContact()">
+          Search Contact
+        </button>
+        <button type="button" class="btn cancel" onclick="closeSearchForm()">
+          Cancel
+        </button>
+        <div id="overlay" class="overlay"></div>
+      </form>
+    </div>
 
-
-      <table id ="dataTable">
-        <thead>
-            <tr>
-                <td>First Name</td>
-                <td>Last Name</td>
-                <td>Email</td>
-                <td>Phone</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            </tr>
-        </tbody>
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Email</td>
+          <td>Phone</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr></tr>
+      </tbody>
     </table>
 
-    
-    <button class="logout-button" onclick ="location.href = 'home.html'" >Logout</button> 
-    
+    <button class="logout-button" onclick="location.href = 'home.html'">
+      Logout
+    </button>
   </body>
 </html>
