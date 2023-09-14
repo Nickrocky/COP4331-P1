@@ -1,8 +1,27 @@
 let table = document.getElementById("dataTable");
 
 function addContact() {
-  let rowCount = table.rows.length;
+  let firstNameValue = document.getElementById("fName").value;
+  let lastNameValue = document.getElementById("lName").value;
+  let emailValue = document.getElementById("email").value;
+  let phoneNumberValue = document.getElementById("phoneNumber").value;
 
+  let contactData = {
+    firstName: firstNameValue,
+    lastName: lastNameValue,
+    email: emailValue,
+    phoneNumber: phoneNumberValue,
+  };
+
+  let jsonPayload = JSON.stringify(contactData);
+  let url = "LAMPAPI/AddContact.php"; //??Change to   let url = urlBase + "/AddContact." + extension;
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+  xhr.send(jsonPayload);
+
+  let rowCount = table.rows.length;
   let row = table.insertRow(rowCount);
   let firstName = row.insertCell(0);
   let lastName = row.insertCell(1);
@@ -10,7 +29,7 @@ function addContact() {
   let phoneNumber = row.insertCell(3);
   let editDelete = row.insertCell(4);
 
-  // dynamically creates edit and delete buttons and adjusts css to fit in table cell
+  // dynamically create edit and delete buttons and adjust CSS to fit in table cell
   let editBtn = document.createElement("button");
   editBtn.classList.add("open-button");
   editBtn.style.height = "40px";
@@ -33,10 +52,10 @@ function addContact() {
 
   deleteContact(deleteBtn);
 
-  firstName.innerHTML = document.getElementById("fName").value;
-  lastName.innerHTML = document.getElementById("lName").value;
-  email.innerHTML = document.getElementById("email").value;
-  phoneNumber.innerHTML = document.getElementById("phoneNumber").value;
+  firstName.innerHTML = firstNameValue;
+  lastName.innerHTML = lastNameValue;
+  email.innerHTML = emailValue;
+  phoneNumber.innerHTML = phoneNumberValue;
   editDelete.appendChild(editBtn);
   editDelete.appendChild(deleteBtn);
 
