@@ -13,13 +13,13 @@ function doSignup() {
 
   document.getElementById("signupResult").innerHTML = "";
 
-  var hash = md5(password);
+  // var hash = md5(password);
 
   let tmp = {
     firstName: firstName,
     lastName: lastName,
     login: username,
-    password: hash,
+    password: password,
   };
 
   let jsonPayload = JSON.stringify(tmp);
@@ -58,11 +58,11 @@ function doLogin() {
 
   let login = document.getElementById("loginName").value;
   let password = document.getElementById("loginPassword").value;
-  var hash = md5(password);
+  // var hash = md5(password);
 
   document.getElementById("loginResult").innerHTML = "";
 
-  let tmp = { login: login, password: hash };
+  let tmp = { login: login, password: password };
 
   let jsonPayload = JSON.stringify(tmp);
 
