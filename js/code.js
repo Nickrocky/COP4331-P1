@@ -13,11 +13,13 @@ function doSignup() {
 
   document.getElementById("signupResult").innerHTML = "";
 
+  var hash = md5(password);
+
   let tmp = {
     firstName: firstName,
     lastName: lastName,
     login: username,
-    password: password,
+    password: hash,
   };
 
   let jsonPayload = JSON.stringify(tmp);
@@ -56,12 +58,12 @@ function doLogin() {
 
   let login = document.getElementById("loginName").value;
   let password = document.getElementById("loginPassword").value;
-  //	var hash = md5( password );
+  var hash = md5(password);
 
   document.getElementById("loginResult").innerHTML = "";
 
-  let tmp = { login: login, password: password };
-  //	var tmp = {login:login,password:hash};
+  let tmp = { login: login, password: hash };
+
   let jsonPayload = JSON.stringify(tmp);
 
   let url = urlBase + "/Login." + extension;
@@ -89,6 +91,7 @@ function doLogin() {
         window.location.href = "contacts.html";
       }
     };
+
     xhr.send(jsonPayload);
   } catch (err) {
     document.getElementById("loginResult").innerHTML = err.message;
