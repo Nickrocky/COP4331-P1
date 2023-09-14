@@ -6,18 +6,28 @@ function addContact() {
   let emailValue = document.getElementById("email").value;
   let phoneNumberValue = document.getElementById("phoneNumber").value;
 
-  let contactData = {
+  let tmp = {
     firstName: firstNameValue,
     lastName: lastNameValue,
     email: emailValue,
     phoneNumber: phoneNumberValue,
   };
 
-  let jsonPayload = JSON.stringify(contactData);
-  let url = "LAMPAPI/AddContact.php"; //??Change to   let url = urlBase + "/AddContact." + extension;
+  let jsonPayload = JSON.stringify(tmp);
+
+  let url = "LAMPAPI/AddContact.php";
   let xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      document.getElementById("fName").value = "";
+      document.getElementById("lName").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("phoneNumber").value = "";
+    }
+  };
 
   xhr.send(jsonPayload);
 
