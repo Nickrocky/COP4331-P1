@@ -16,8 +16,8 @@ function doSignup() {
   // var hash = md5(password);
 
   let tmp = {
-    firstName: firstName,
-    lastName: lastName,
+    firstname: firstName,
+    lastname: lastName,
     login: username,
     password: password,
   };
