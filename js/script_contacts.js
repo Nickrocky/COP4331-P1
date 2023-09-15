@@ -15,7 +15,7 @@ function addContact() {
 
   let jsonPayload = JSON.stringify(tmp);
 
-  let url = "LAMPAPI/AddContact.php";
+  let url = urlBase + "/AddContact." + extension;
   let xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
