@@ -1,4 +1,6 @@
 let table = document.getElementById("dataTable");
+const urlBase = "http://138.197.64.137/LAMPAPI";
+const extension = "php";
 
 function addContact() {
   let firstNameValue = document.getElementById("fName").value;
