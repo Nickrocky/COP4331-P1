@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style_contacts.css" />
-    <script src="js/script_contacts.js" defer></script>
+    <script src="js/code.js" defer></script>
     <title>Contacts</title>
   </head>
   <body>
     <div class="overlay" id="overlay"></div>
 
     <div class="form-popup" id="myForm">
-      <form onSubmit ="return false" method="get" class="form-container">
+      <form onSubmit="return false" method="get" class="form-container">
         <input
           type="firstname"
           placeholder="Enter First Name"
@@ -49,21 +49,18 @@
         <div id="overlay" class="overlay"></div>
       </form>
     </div>
-    
-    <input
-    type="text"
-    id="mySearchInput"
-    placeholder="Enter email here..."
-    />
 
-  <button type="submit" class="submit-button" onclick="searchContact()">
-    Search Contact
-  </button>
+    <input type="text" id="mySearchInput" placeholder="Enter email here..." />
+
+    <button type="submit" class="submit-button" onclick="searchContact()">
+      Search Contact
+    </button>
 
     <button
       class="clearSearch-button"
       id="clear"
-      onclick="clearContactSearch()">
+      onclick="clearContactSearch()"
+    >
       Clear Search
     </button>
 
@@ -75,7 +72,9 @@
           <td>Email</td>
           <td>Phone</td>
           <td>
-            <button class="open-button" onclick="openForm()">Add Contact</button>
+            <button class="open-button" onclick="openForm()">
+              Add Contact
+            </button>
           </td>
         </tr>
       </thead>
