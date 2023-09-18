@@ -142,11 +142,11 @@ function readCookie() {
   }
 }
 
-function addContact() {
   let firstNameValue = document.getElementById("fName").value;
   let lastNameValue = document.getElementById("lName").value;
   let emailValue = document.getElementById("email").value;
   let phoneNumberValue = document.getElementById("phoneNumber").value;
+  document.getElementById("contactAddResult").innerHTML = "";
 
   let tmp = {
     firstName: firstNameValue,
@@ -162,14 +162,22 @@ function addContact() {
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
 
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      document.getElementById("fName").value = "";
-      document.getElementById("lName").value = "";
-      document.getElementById("email").value = "";
-      document.getElementById("phoneNumber").value = "";
-    }
-  };
+  try {
+    xhr.onreadystatechange = function () {
+      if (this.readyState == 4) {
+        if (this.status == 200) {
+          document.getElementById("contactAddResult").innerHTML =
+            "Contact has been added";
+        } else {
+          document.getElementById("contactAddResult").innerHTML =
+          err.message;
+        }
+      }
+    };
+    xhr.send(jsonPayload);
+  } catch (err) {
+    document.getElementById("contactAddResult").innerHTML = err.message;
+  }
 
   xhr.send(jsonPayload);
 
