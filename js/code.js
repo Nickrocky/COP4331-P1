@@ -347,9 +347,6 @@ function editContact(button) {
   });
 }
 
-  });
-}
-
 var form = document.getElementById("myForm");
 var openButton = document.getElementById("openButton");
 
