@@ -240,7 +240,7 @@ function deleteContact(button) {
 
       let fullName = firstNameValue + " " + lastNameValue;
 
-      document.getElementById("contactAddResult").innerHTML = "";
+      document.getElementById("contactDeleteResult").innerHTML = "";
 
 
       let deletePayload = {
