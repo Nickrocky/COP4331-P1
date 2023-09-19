@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="css/style_contacts.css" />
     <script src="js/code.js" defer></script>
     <title>Contacts</title>
+    	<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() 
+	{
+		readCookie();
+	}, false);
+	</script>
   </head>
   <body>
     <div class="overlay" id="overlay"></div>
@@ -86,8 +92,5 @@
     <button class="logout-button" onclick="location.href = 'index.html'">
       Logout
     </button>
-    <script>
-  readCookie();
-  </script>
   </body>
 </html>
