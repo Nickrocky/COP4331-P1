@@ -142,6 +142,8 @@ function readCookie() {
   }
 }
 
+function addContact() {
+  
   let firstNameValue = document.getElementById("fName").value;
   let lastNameValue = document.getElementById("lName").value;
   let emailValue = document.getElementById("email").value;
