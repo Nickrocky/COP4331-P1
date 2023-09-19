@@ -142,43 +142,6 @@ function readCookie() {
   }
 }
 
-function loadContacts() {
-  let url = urlBase + "/SearchContact." + extension;
-  let jsonPayload = JSON.stringify({ userId: userId });
-
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", url, true);
-  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
-  try {
-    xhr.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        let contacts = JSON.parse(xhr.responseText);
-
-        let table = document.getElementById("dataTable");
-        table.innerHTML = ""; 
-
-        for (let i = 0; i < contacts.length; i++) {
-          let contact = contacts[i];
-          let row = table.insertRow(i);
-
-          let firstNameCell = row.insertCell(0);
-          let lastNameCell = row.insertCell(1);
-          let emailCell = row.insertCell(2);
-          let phoneCell = row.insertCell(3);
-
-          firstNameCell.innerHTML = contact.firstName;
-          lastNameCell.innerHTML = contact.lastName;
-          emailCell.innerHTML = contact.email;
-          phoneCell.innerHTML = contact.phoneNumber;
-        }
-      }
-    };
-    xhr.send(jsonPayload);
-  } catch (err) {
-    console.error(err);
-  }
-}
 
 function addContact() {
   let firstNameValue = document.getElementById("fName").value;
