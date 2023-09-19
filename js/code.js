@@ -226,8 +226,8 @@ function deleteContact(button) {
         "This will delete this contact's name, email, and phone number. Are you sure?"
       )
     ) {
-       /* Make sure row deletion starts at row 2 and don't delete 0 and 1.
-         0 is the header row, row 1 is the empty row in the HTML that lets us make the body color different than the header row color. */
+      /* Make sure row deletion starts at row 2 and don't delete 0 and 1.
+      0 is the header row, row 1 is the empty row in the HTML that lets us make the body color different than the header row color. */
 
       // .closest() goes up DOM tree to find "tr". Since buttons are always
       // nested inside a tr and are always in separate tr's, this works.
@@ -250,24 +250,23 @@ function deleteContact(button) {
         userId : userId,
       };
 
-      let deleteJsonPayload = JSON.stringify(deletePayload);
+      let jsonPayload = JSON.stringify(deletePayload);
       let deleteUrl = urlBase + "/DeleteContact." + extension;
 
-      let deleteXhr = new XMLHttpRequest();
+      let xhr = new XMLHttpRequest();
       deleteXhr.open("POST", deleteUrl, true);
       deleteXhr.setRequestHeader("Content-Type","application/json; charset=UTF-8");
 
       try {
-        deleteXhr.onreadystatechange = function () {
+         xhr.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
-            tableRow.remove();
-            document.getElementById("contactDeleteResult").innerHTML =
-            "Contact has been deleted";
+            console.log("Contact has been deleted");
+
           }
         };
-        deleteXhr.send(deleteJsonPayload);
+        xhr.send(jsonPayload);
       } catch (err) {
-        document.getElementById("contactDeleteResult").innerHTML = err.message;
+        console.log(err.message);
       }
     }
   });
