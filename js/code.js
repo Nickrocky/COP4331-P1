@@ -307,6 +307,44 @@ function editContact(button) {
       email.innerHTML = email.querySelector("input").value;
       phone.innerHTML = phone.querySelector("input").value;
     }
+
+    let firstNameValue = fName.querySelector("input").value;
+    let lastNameValue = lName.querySelector("input").value;
+    let emailValue = email.querySelector("input").value;
+    let phoneNumberValue = phone.querySelector("input").value;
+    document.getElementById("contactUpdate").innerHTML = "";
+  
+    let fullName = firstNameValue + " " + lastNameValue;
+  
+    let tmp = {
+      name: fullName,
+      email: emailValue,
+      phone: phoneNumberValue,
+      userId: userId,
+    };
+  
+    let jsonPayload = JSON.stringify(tmp);
+  
+    let url = urlBase + "/UpdateContact." + extension;
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+  
+    try {
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("contactUpdate").innerHTML =
+            "Contact has been added";
+        }
+      };
+      xhr.send(jsonPayload);
+    } catch (err) {
+      document.getElementById("contactUpdate").innerHTML = err.message;
+    }
+
+  });
+}
+
   });
 }
 
