@@ -137,8 +137,9 @@ function readCookie() {
   if (userId < 0) {
     window.location.href = "index.html";
   } else {
-    document.getElementById("userName").innerHTML =
-      "Logged in as " + firstName + " " + lastName;
+    // COMMENTED OUT FOR DEBUGGING (WE DON'T HAVE THIS ID YET)
+    // document.getElementById("userName").innerHTML =
+    //   "Logged in as " + firstName + " " + lastName;
   }
 }
 
@@ -235,7 +236,7 @@ function deleteContact(button) {
       let lastNameValue = tableRow.cells[1].textContent;
       let fullName = firstNameValue + " " + lastNameValue;
 
-      document.getElementById("contactDeleteResult").innerHTML = "";
+      // document.getElementById("contactDeleteResult").innerHTML = "";
 
       let deletePayload = {
         name: fullName,
