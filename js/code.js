@@ -232,15 +232,19 @@ function deleteContact(button) {
       // .closest() goes up DOM tree to find "tr". Since buttons are always
       // nested inside a tr and are always in separate tr's, this works.
       
-      let tableRow = button.closest("tr"); 
-      let fullNameValue = tableRow.cells[0].textContent;
+      let tableRow = button.closest("tr"); // Get the row to delete
+      let firstNameValue = tableRow.cells[0].textContent;
+      let lastNameValue = tableRow.cells[1].textContent;
       let emailValue = tableRow.cells[2].textContent;
       let phoneNumberValue = tableRow.cells[3].textContent;
+
+      let fullName = firstNameValue + " " + lastNameValue;
+
       document.getElementById("contactAddResult").innerHTML = "";
 
 
       let deletePayload = {
-        name: fullNameValue,
+        name: fullName,
         email: emailValue,
         phone: phoneNumberValue,
         userId : userId,
