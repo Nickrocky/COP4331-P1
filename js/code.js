@@ -155,6 +155,7 @@ function addContact() {
       name: fullName,
       email: emailValue,
       phone: phoneNumberValue,
+      userId : userId,
   };
   
   let jsonPayload = JSON.stringify(tmp);
