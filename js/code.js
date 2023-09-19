@@ -231,8 +231,6 @@ function deleteContact(button) {
 
       // .closest() goes up DOM tree to find "tr". Since buttons are always
       // nested inside a tr and are always in separate tr's, this works.
-      
-      let tableRow = button.closest("tr"); // Get the row to delete
       let firstNameValue = tableRow.cells[0].textContent;
       let lastNameValue = tableRow.cells[1].textContent;
       let emailValue = tableRow.cells[2].textContent;
@@ -268,6 +266,8 @@ function deleteContact(button) {
       } catch (err) {
         console.log(err.message);
       }
+
+      let tableRow = button.closest("tr"); // Get the row to delete
     }
   });
 }
