@@ -180,9 +180,7 @@ function addContact() {
   } catch (err) {
     document.getElementById("contactAddResult").innerHTML = err.message;
   }
-
-  xhr.send(jsonPayload);
-
+  
   let rowCount = table.rows.length;
   let row = table.insertRow(rowCount);
   let firstName = row.insertCell(0);
