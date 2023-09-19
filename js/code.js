@@ -232,7 +232,7 @@ function deleteContact(button) {
       // .closest() goes up DOM tree to find "tr". Since buttons are always
       // nested inside a tr and are always in separate tr's, this works.
       let firstNameValue = tableRow.cells[0].textContent;
-      let lastNameValue = tableRow.cells[1].textContent
+      let lastNameValue = tableRow.cells[1].textContent;
       let fullName = firstNameValue + " " + lastNameValue;
 
       document.getElementById("contactDeleteResult").innerHTML = "";
