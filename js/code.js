@@ -314,7 +314,7 @@ function searchContact() {
 
   //traverse through rows & hide non matches
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0]; //search by name
+    td = tr[i].getElementsByTagName("td")[0]; //search by name 
 
     if (td) {
       txtValue = td.textContent || td.innerText;
