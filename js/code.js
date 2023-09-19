@@ -259,6 +259,8 @@ function deleteContact(button) {
       } catch (err) {
         console.log(err.message);
       }
+
+      tableRow.remove();
     }
   });
 }
