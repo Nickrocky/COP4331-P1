@@ -245,8 +245,8 @@ function deleteContact(button) {
       let deleteUrl = urlBase + "/DeleteContact." + extension;
 
       let xhr = new XMLHttpRequest();
-      deleteXhr.open("POST", deleteUrl, true);
-      deleteXhr.setRequestHeader("Content-Type","application/json; charset=UTF-8");
+      xhr.open("POST", deleteUrl, true);
+      xhr.setRequestHeader("Content-Type","application/json; charset=UTF-8");
 
       try {
          xhr.onreadystatechange = function () {
