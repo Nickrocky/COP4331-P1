@@ -142,68 +142,6 @@ function readCookie() {
   }
 }
 
-function loadContacts() {
-  let url = urlBase + "/SearchContact." + extension;
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", url, true);
-  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
-  try {
-    xhr.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        let contacts = JSON.parse(xhr.responseText);
-
-        for (let i = 0; i < contacts.length; i++) {
-          let contact = contacts[i];
-          displayContact(contact);
-        }
-      }
-    };
-    xhr.send(JSON.stringify({ userId: userId }));
-  } catch (err) {
-    console.error(err.message);
-  }
-}
-
-function displayContact(contact) {
-  let rowCount = table.rows.length;
-  let row = table.insertRow(rowCount);
-  let firstName = row.insertCell(0);
-  let lastName = row.insertCell(1);
-  let email = row.insertCell(2);
-  let phoneNumber = row.insertCell(3);
-  let editDelete = row.insertCell(4);
-
-  firstName.innerHTML = contact.firstName;
-  lastName.innerHTML = contact.lastName;
-  email.innerHTML = contact.email;
-  phoneNumber.innerHTML = contact.phoneNumber;
-
-  let editBtn = document.createElement("button");
-  editBtn.classList.add("open-button");
-  editBtn.style.height = "40px";
-  editBtn.style.width = "70px";
-  editBtn.style.top = "0px";
-  editBtn.innerHTML = "Edit";
-  editBtn.style.position = "relative";
-  editBtn.style.left = "2%";
-
-  let deleteBtn = document.createElement("button");
-  deleteBtn.classList.add("open-button");
-  deleteBtn.style.height = "40px";
-  deleteBtn.style.width = "80px";
-  deleteBtn.style.top = "0px";
-  deleteBtn.innerHTML = "Delete";
-  deleteBtn.style.position = "relative";
-  deleteBtn.style.left = "2%";
-
-  editContact(editBtn);
-  deleteContact(deleteBtn);
-
-  editDelete.appendChild(editBtn);
-  editDelete.appendChild(deleteBtn);
-}
-
 function addContact() {
   let firstNameValue = document.getElementById("fName").value;
   let lastNameValue = document.getElementById("lName").value;
