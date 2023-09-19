@@ -143,20 +143,20 @@ function readCookie() {
 }
 
 function addContact() {
-  
   let firstNameValue = document.getElementById("fName").value;
   let lastNameValue = document.getElementById("lName").value;
   let emailValue = document.getElementById("email").value;
   let phoneNumberValue = document.getElementById("phoneNumber").value;
   document.getElementById("contactAddResult").innerHTML = "";
 
-  let tmp = {
-    firstName: firstNameValue,
-    lastName: lastNameValue,
-    email: emailValue,
-    phoneNumber: phoneNumberValue,
-  };
+  let fullName = firstNameValue + " " + lastNameValue;
 
+  let tmp = {
+      name: fullName,
+      email: emailValue,
+      phoneNumber: phoneNumberValue,
+  };
+  
   let jsonPayload = JSON.stringify(tmp);
 
   let url = urlBase + "/AddContact." + extension;
@@ -166,21 +166,16 @@ function addContact() {
 
   try {
     xhr.onreadystatechange = function () {
-      if (this.readyState == 4) {
-        if (this.status == 200) {
+      if (this.readyState == 4 && this.status == 200) {
           document.getElementById("contactAddResult").innerHTML =
             "Contact has been added";
-        } else {
-          document.getElementById("contactAddResult").innerHTML =
-          err.message;
         }
-      }
     };
     xhr.send(jsonPayload);
   } catch (err) {
     document.getElementById("contactAddResult").innerHTML = err.message;
   }
-  
+
   let rowCount = table.rows.length;
   let row = table.insertRow(rowCount);
   let firstName = row.insertCell(0);
