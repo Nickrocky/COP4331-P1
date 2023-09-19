@@ -142,7 +142,6 @@ function readCookie() {
   }
 }
 
-
 function addContact() {
   let firstNameValue = document.getElementById("fName").value;
   let lastNameValue = document.getElementById("lName").value;
@@ -153,12 +152,12 @@ function addContact() {
   let fullName = firstNameValue + " " + lastNameValue;
 
   let tmp = {
-      name: fullName,
-      email: emailValue,
-      phone: phoneNumberValue,
-      userId : userId,
+    name: fullName,
+    email: emailValue,
+    phone: phoneNumberValue,
+    userId: userId,
   };
-  
+
   let jsonPayload = JSON.stringify(tmp);
 
   let url = urlBase + "/AddContact." + extension;
@@ -169,9 +168,9 @@ function addContact() {
   try {
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("contactAddResult").innerHTML =
-            "Contact has been added";
-        }
+        document.getElementById("contactAddResult").innerHTML =
+          "Contact has been added";
+      }
     };
     xhr.send(jsonPayload);
   } catch (err) {
@@ -231,6 +230,7 @@ function deleteContact(button) {
 
       // .closest() goes up DOM tree to find "tr". Since buttons are always
       // nested inside a tr and are always in separate tr's, this works.
+      let tableRow = button.closest("tr");
       let firstNameValue = tableRow.cells[0].textContent;
       let lastNameValue = tableRow.cells[1].textContent;
       let fullName = firstNameValue + " " + lastNameValue;
@@ -240,27 +240,24 @@ function deleteContact(button) {
       let deletePayload = {
         name: fullName,
       };
-      
+
       let jsonPayload = JSON.stringify(deletePayload);
       let deleteUrl = urlBase + "/DeleteContact." + extension;
 
       let xhr = new XMLHttpRequest();
       xhr.open("POST", deleteUrl, true);
-      xhr.setRequestHeader("Content-Type","application/json; charset=UTF-8");
+      xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
 
       try {
-         xhr.onreadystatechange = function () {
+        xhr.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
             console.log("Contact has been deleted");
-
           }
         };
         xhr.send(jsonPayload);
       } catch (err) {
         console.log(err.message);
       }
-
-      let tableRow = button.closest("tr"); // Get the row to delete
     }
   });
 }
@@ -344,7 +341,7 @@ function searchContact() {
 
   //traverse through rows & hide non matches
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0]; //search by name 
+    td = tr[i].getElementsByTagName("td")[0]; //search by name
 
     if (td) {
       txtValue = td.textContent || td.innerText;
