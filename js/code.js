@@ -226,6 +226,12 @@ function deleteContact(button) {
         "This will delete this contact's name, email, and phone number. Are you sure?"
       )
     ) {
+       /* Make sure row deletion starts at row 2 and don't delete 0 and 1.
+         0 is the header row, row 1 is the empty row in the HTML that lets us make the body color different than the header row color. */
+
+      // .closest() goes up DOM tree to find "tr". Since buttons are always
+      // nested inside a tr and are always in separate tr's, this works.
+      
       let tableRow = button.closest("tr"); 
       let fullNameValue = tableRow.cells[0].textContent;
       let emailValue = tableRow.cells[2].textContent;
