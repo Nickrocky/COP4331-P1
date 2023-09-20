@@ -143,6 +143,50 @@ function readCookie() {
   }
 }
 
+function loadContacts() {
+  let table = document.getElementById("dataTable");
+  table.innerHTML = ""; 
+
+  let jsonPayload = JSON.stringify({ userId: userId }); 
+
+  let url = urlBase + "/SearchContact." + extension;
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+  try {
+    xhr.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        let jsonObject = JSON.parse(xhr.responseText);
+
+        if (jsonObject.contacts && jsonObject.contacts.length > 0) {
+          for (let i = 0; i < jsonObject.contacts.length; i++) {
+            let contact = jsonObject.contacts[i];
+
+            let row = table.insertRow(i + 1);
+            let firstNameCell = row.insertCell(0);
+            let lastNameCell = row.insertCell(1);
+            let emailCell = row.insertCell(2);
+            let phoneNumberCell = row.insertCell(3);
+
+            const parts = contact.name.split(" ");
+            const firstName = parts[0];
+            const lastName = parts.slice(1).join(" ");
+
+            firstNameCell.innerHTML = firstName;
+            lastNameCell.innerHTML = lastName;
+            emailCell.innerHTML = contact.email;
+            phoneNumberCell.innerHTML = contact.phone;
+          }
+        } 
+      }
+    };
+    xhr.send(jsonPayload);
+  } catch (err) {
+    console.error(err.message);
+  }
+}
+
 function addContact() {
   let firstNameValue = document.getElementById("fName").value;
   let lastNameValue = document.getElementById("lName").value;
