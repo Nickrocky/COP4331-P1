@@ -427,9 +427,10 @@ function doLogout() {
 
 function searchConnection(button) {
   let srch = document.getElementById("mySearchInput").value;
-  document.getElementById("colorSearchResult").innerHTML = "";
+  //document.getElementById("colorSearchResult").innerHTML = "";
+  tr = table.getElementsByTagName("tr").innerHTML = "";
 
-  let colorList = "";
+  let searchList = "";
 
   let tmp = { search: srch, userId: userId };
   let jsonPayload = JSON.stringify(tmp);
@@ -442,8 +443,9 @@ function searchConnection(button) {
   try {
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("colorSearchResult").innerHTML =
-          "Contact(s) has been retrieved.";
+        // document.getElementById("colorSearchResult").innerHTML =
+        //   "Contact(s) has been retrieved.";
+          table.getElementsByTagName("tr").innerHTML = "Contact(s) have been retrieved.";
         let jsonObject = JSON.parse(xhr.responseText);
 
         for (let i = 0; i < jsonObject.results.length; i++) {
@@ -453,12 +455,13 @@ function searchConnection(button) {
           }
         }
 
-        document.getElementsByTagName("p")[0].innerHTML = colorList;
+        document.getElementsByTagName("p")[0].innerHTML = searchList;
       }
     };
     xhr.send(jsonPayload);
   } catch (err) {
-    document.getElementById("colorSearchResult").innerHTML = err.message;
+    //document.getElementById("colorSearchResult").innerHTML = err.message;
+    table.getElementsByTagName("tr").innerHTML = err.message;
   }
 }
 
