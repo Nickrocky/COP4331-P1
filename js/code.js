@@ -270,6 +270,8 @@ function editContact(button) {
 
   let OriginalFullName;
   let NewFullName;
+  let tmpPhone;
+  let tmpEmail;
   let editFinishedFlag = 0;
 
   button.addEventListener("click", () => {
@@ -317,6 +319,8 @@ function editContact(button) {
       email.innerHTML = email.querySelector("input").value;
       phone.innerHTML = phone.querySelector("input").value;
 
+      tmpPhone = phone;
+      tmpEmail = email;
       NewFullName = fName + " " + lName;
       editFinishedFlag = 1;
     }
@@ -326,8 +330,8 @@ function editContact(button) {
       let tmp = {
         contactname: OriginalFullName,
         name: NewFullName,
-        phone: phone,
-        email: email,
+        phone: tmpPhone,
+        email: tmpEmail,
         userId: userId,
       };
 
