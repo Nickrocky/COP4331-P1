@@ -1,6 +1,11 @@
 <?php
 
 	$inData = getRequestInfo();
+
+	$name = $inData["name"];
+    $phone = $inData["phone"];
+    $email = $inData["email"];
+    $userId = $inData["userId"];
 	
 	$searchResults = "";
 	$searchCount = 0;

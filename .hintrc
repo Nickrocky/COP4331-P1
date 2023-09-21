@@ -11,6 +11,13 @@
           "user-select"
         ]
       }
+    ],
+    "button-type": "off",
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
     ]
   }
 }

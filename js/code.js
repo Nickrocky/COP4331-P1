@@ -452,7 +452,7 @@ function addColor() {
   }
 }
 
-function searchColor() {
+function searchContactConnection() {
   let srch = document.getElementById("searchText").value;
   document.getElementById("colorSearchResult").innerHTML = "";
 
@@ -470,7 +470,7 @@ function searchColor() {
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         document.getElementById("colorSearchResult").innerHTML =
-          "Color(s) has been retrieved";
+          "Contact(s) has been retrieved.";
         let jsonObject = JSON.parse(xhr.responseText);
 
         for (let i = 0; i < jsonObject.results.length; i++) {
