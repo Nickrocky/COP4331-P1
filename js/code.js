@@ -266,16 +266,19 @@ function deleteContact(button) {
 }
 
 function editContact(button) {
+  // cells containing these items
+  let fName = table.rows[button.closest("tr").rowIndex].cells[0];
+  let lName = table.rows[button.closest("tr").rowIndex].cells[1];
+  let email = table.rows[button.closest("tr").rowIndex].cells[2];
+  let phone = table.rows[button.closest("tr").rowIndex].cells[3];
+  let OriginalFullName = fName + " " + lName;
+  let NewFullName;
+  let editFinishedFlag = 0;
+
   button.addEventListener("click", () => {
     if (button.innerHTML === "Edit") {
       // Change the button text to "Done" and make the cells editable
       button.innerHTML = "Done";
-
-      // cells containing these items
-      let fName = table.rows[button.closest("tr").rowIndex].cells[0];
-      let lName = table.rows[button.closest("tr").rowIndex].cells[1];
-      let email = table.rows[button.closest("tr").rowIndex].cells[2];
-      let phone = table.rows[button.closest("tr").rowIndex].cells[3];
 
       fName.innerHTML =
         "<input type='text' class='editable-input' value='" +
@@ -293,57 +296,51 @@ function editContact(button) {
         "<input type='text' class='editable-input' value='" +
         phone.innerHTML +
         "'></input>";
+
+      editFinishedFlag = 0;
     } else if (button.innerHTML === "Done") {
       // Change the button text back to "Edit" and save the changes
       button.innerHTML = "Edit";
-
-      // cells containing these items
-      let fName = table.rows[button.closest("tr").rowIndex].cells[0];
-      let lName = table.rows[button.closest("tr").rowIndex].cells[1];
-      let email = table.rows[button.closest("tr").rowIndex].cells[2];
-      let phone = table.rows[button.closest("tr").rowIndex].cells[3];
 
       // Update the cell content with the edited values
       fName.innerHTML = fName.querySelector("input").value;
       lName.innerHTML = lName.querySelector("input").value;
       email.innerHTML = email.querySelector("input").value;
       phone.innerHTML = phone.querySelector("input").value;
+
+      NewFullName = fName + " " + lName;
+      editFinishedFlag = 1;
     }
 
-    let firstNameValue = fName.querySelector("input").value;
-    let lastNameValue = lName.querySelector("input").value;
-    let emailValue = email.querySelector("input").value;
-    let phoneNumberValue = phone.querySelector("input").value;
-    document.getElementById("contactUpdate").innerHTML = "";
-  
-    let fullName = firstNameValue + " " + lastNameValue;
-  
-    let tmp = {
-      name: fullName,
-      email: emailValue,
-      phone: phoneNumberValue,
-      userId: userId,
-    };
-  
-    let jsonPayload = JSON.stringify(tmp);
-  
-    let url = urlBase + "/UpdateContact." + extension;
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-  
-    try {
-      xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("contactUpdate").innerHTML =
-            "Contact has been added";
-        }
+    // document.getElementById("contactUpdate").innerHTML = "";
+    if (editFinishedFlag === 1) {
+      let tmp = {
+        contactname: OriginalFullName,
+        name: NewFullName,
+        phone: phone,
+        email: email,
+        userId: userId,
       };
-      xhr.send(jsonPayload);
-    } catch (err) {
-      document.getElementById("contactUpdate").innerHTML = err.message;
-    }
 
+      let jsonPayload = JSON.stringify(tmp);
+
+      let url = urlBase + "/UpdateContact." + extension;
+      let xhr = new XMLHttpRequest();
+      xhr.open("POST", url, true);
+      xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+      try {
+        xhr.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            // document.getElementById("contactUpdate").innerHTML =
+            //   "Contact has been added";
+          }
+        };
+        xhr.send(jsonPayload);
+      } catch (err) {
+        // document.getElementById("contactUpdate").innerHTML = err.message;
+      }
+    }
   });
 }
 
