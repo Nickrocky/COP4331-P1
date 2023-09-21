@@ -284,7 +284,7 @@ function editContact(button) {
       let email = table.rows[button.closest("tr").rowIndex].cells[2];
       let phone = table.rows[button.closest("tr").rowIndex].cells[3];
 
-      OriginalFullName = fName + " " + lName;
+      OriginalFullName = fName.innerHTML + " " + lName.innerHTML;
 
       fName.innerHTML =
         "<input type='text' class='editable-input' value='" +
@@ -319,9 +319,9 @@ function editContact(button) {
       email.innerHTML = email.querySelector("input").value;
       phone.innerHTML = phone.querySelector("input").value;
 
-      tmpPhone = phone;
-      tmpEmail = email;
-      NewFullName = fName + " " + lName;
+      tmpPhone = phone.innerHTML;
+      tmpEmail = email.innerHTML;
+      NewFullName = fName.innerHTML + " " + lName.innerHTML;
       editFinishedFlag = 1;
     }
 
