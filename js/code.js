@@ -452,8 +452,8 @@ function addColor() {
   }
 }
 
-function searchContactConnection() {
-  let srch = document.getElementById("searchText").value;
+function searchConnection(button) {
+  let srch = document.getElementById("mySearchInput").value;
   document.getElementById("colorSearchResult").innerHTML = "";
 
   let colorList = "";
@@ -461,7 +461,7 @@ function searchContactConnection() {
   let tmp = { search: srch, userId: userId };
   let jsonPayload = JSON.stringify(tmp);
 
-  let url = urlBase + "/SearchColors." + extension;
+  let url = urlBase + "/SearchContact." + extension;
 
   let xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
