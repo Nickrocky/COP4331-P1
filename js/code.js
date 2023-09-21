@@ -334,9 +334,11 @@ function editContact(button) {
           if (this.readyState == 4 && this.status == 200) {
             // document.getElementById("contactUpdate").innerHTML =
             //   "Contact has been added";
+            console.log("THIS USER HAS BEEN EDITED");
           }
         };
         xhr.send(jsonPayload);
+        console.log("PAYLOAD FOR EDIT HAS BEEN SENT");
       } catch (err) {
         // document.getElementById("contactUpdate").innerHTML = err.message;
       }
@@ -345,7 +347,7 @@ function editContact(button) {
 }
 
 var form = document.getElementById("myForm");
-var openButton = document.getElementById("openButton");
+var openButton = document.getElementById("open-button");
 
 function openForm() {
   document.getElementById("myForm").style.display = "block";

@@ -21,16 +21,16 @@
 
     <div class="form-popup" id="myForm">
       <form onSubmit="return false" class="form-container">
-        <input type="text" placeholder="Enter First Name" required id="fName" />
-        <input type="text" placeholder="Enter Last Name" required id="lName" />
-        <input type="text" placeholder="Enter Email" required id="email" />
+        <input type="text" placeholder="Enter First Name" id="fName" required />
+        <input type="text" placeholder="Enter Last Name" id="lName" required />
+        <input type="text" placeholder="Enter Email" id="email" required />
         <input
           type="number"
           placeholder="Enter Phone Number"
-          required
           id="phoneNumber"
+          required
         />
-        <button type="submit" class="btn" onclick="addContact()">
+        <button type="button" class="btn" onclick="addContact()">
           Add Contact
         </button>
         <button type="button" class="btn cancel" onclick="closeForm()">
@@ -43,7 +43,7 @@
 
     <input type="text" id="mySearchInput" placeholder="Enter email here..." />
 
-    <button type="submit" class="submit-button" onclick="searchContact()">
+    <button type="button" class="submit-button" onclick="searchContact()">
       Search Contact
     </button>
 
