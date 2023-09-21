@@ -196,7 +196,7 @@ function addContact() {
   editBtn.style.position = "relative";
   editBtn.style.left = "2%";
 
-  // editContact(editBtn);
+  editContact(editBtn);
 
   let deleteBtn = document.createElement("button");
   deleteBtn.classList.add("open-button");
@@ -267,11 +267,8 @@ function deleteContact(button) {
 
 function editContact(button) {
   // cells containing these items
-  let fName = table.rows[button.closest("tr").rowIndex].cells[0];
-  let lName = table.rows[button.closest("tr").rowIndex].cells[1];
-  let email = table.rows[button.closest("tr").rowIndex].cells[2];
-  let phone = table.rows[button.closest("tr").rowIndex].cells[3];
-  let OriginalFullName = fName + " " + lName;
+
+  let OriginalFullName;
   let NewFullName;
   let editFinishedFlag = 0;
 
@@ -279,6 +276,13 @@ function editContact(button) {
     if (button.innerHTML === "Edit") {
       // Change the button text to "Done" and make the cells editable
       button.innerHTML = "Done";
+
+      let fName = table.rows[button.closest("tr").rowIndex].cells[0];
+      let lName = table.rows[button.closest("tr").rowIndex].cells[1];
+      let email = table.rows[button.closest("tr").rowIndex].cells[2];
+      let phone = table.rows[button.closest("tr").rowIndex].cells[3];
+
+      OriginalFullName = fName + " " + lName;
 
       fName.innerHTML =
         "<input type='text' class='editable-input' value='" +
@@ -301,6 +305,11 @@ function editContact(button) {
     } else if (button.innerHTML === "Done") {
       // Change the button text back to "Edit" and save the changes
       button.innerHTML = "Edit";
+
+      let fName = table.rows[button.closest("tr").rowIndex].cells[0];
+      let lName = table.rows[button.closest("tr").rowIndex].cells[1];
+      let email = table.rows[button.closest("tr").rowIndex].cells[2];
+      let phone = table.rows[button.closest("tr").rowIndex].cells[3];
 
       // Update the cell content with the edited values
       fName.innerHTML = fName.querySelector("input").value;
