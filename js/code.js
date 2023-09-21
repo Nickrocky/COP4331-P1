@@ -423,33 +423,7 @@ function doLogout() {
   document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
   window.location.href = "index.html";
 }
-// ------------ END OF CONTACTS.HTML SECTION ------------
 
-// We can use these to help connect our add/search contacts to backend
-function addColor() {
-  let newColor = document.getElementById("colorText").value;
-  document.getElementById("colorAddResult").innerHTML = "";
-
-  let tmp = { color: newColor, userId, userId };
-  let jsonPayload = JSON.stringify(tmp);
-
-  let url = urlBase + "/AddColor." + extension;
-
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", url, true);
-  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-  try {
-    xhr.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("colorAddResult").innerHTML =
-          "Color has been added";
-      }
-    };
-    xhr.send(jsonPayload);
-  } catch (err) {
-    document.getElementById("colorAddResult").innerHTML = err.message;
-  }
-}
 
 function searchConnection(button) {
   let srch = document.getElementById("mySearchInput").value;
@@ -485,5 +459,33 @@ function searchConnection(button) {
     xhr.send(jsonPayload);
   } catch (err) {
     document.getElementById("colorSearchResult").innerHTML = err.message;
+  }
+}
+
+// ------------ END OF CONTACTS.HTML SECTION ------------
+
+// We can use these to help connect our add/search contacts to backend
+function addColor() {
+  let newColor = document.getElementById("colorText").value;
+  document.getElementById("colorAddResult").innerHTML = "";
+
+  let tmp = { color: newColor, userId, userId };
+  let jsonPayload = JSON.stringify(tmp);
+
+  let url = urlBase + "/AddColor." + extension;
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+  try {
+    xhr.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("colorAddResult").innerHTML =
+          "Color has been added";
+      }
+    };
+    xhr.send(jsonPayload);
+  } catch (err) {
+    document.getElementById("colorAddResult").innerHTML = err.message;
   }
 }
