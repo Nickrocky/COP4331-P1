@@ -196,7 +196,7 @@ function addContact() {
   editBtn.style.position = "relative";
   editBtn.style.left = "2%";
 
-  editContact(editBtn);
+  // editContact(editBtn);
 
   let deleteBtn = document.createElement("button");
   deleteBtn.classList.add("open-button");
@@ -424,7 +424,6 @@ function doLogout() {
   window.location.href = "index.html";
 }
 
-
 function searchConnection(button) {
   let srch = document.getElementById("mySearchInput").value;
   //document.getElementById("colorSearchResult").innerHTML = "";
@@ -445,7 +444,8 @@ function searchConnection(button) {
       if (this.readyState == 4 && this.status == 200) {
         // document.getElementById("colorSearchResult").innerHTML =
         //   "Contact(s) has been retrieved.";
-          table.getElementsByTagName("tr").innerHTML = "Contact(s) have been retrieved.";
+        table.getElementsByTagName("tr").innerHTML =
+          "Contact(s) have been retrieved.";
         let jsonObject = JSON.parse(xhr.responseText);
 
         for (let i = 0; i < jsonObject.results.length; i++) {
