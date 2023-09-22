@@ -171,19 +171,19 @@ function loadContacts() {
         let actionsCell = row.insertCell(4);
 
         if (response.results[i].hasOwnProperty('name')) {
-          firstNameCell.innerHTML = response.results[i].firstName;
+          firstNameCell.innerHTML = response.results.firstName;
         } else {
           firstNameCell.innerHTML = 'N/A'; 
         }
   
         if (response.results[i].hasOwnProperty('name')) {
-          lastNameCell.innerHTML = response.results[i].lastName;
+          lastNameCell.innerHTML = response.results.lastName;
         } else {
           lastNameCell.innerHTML = 'N/A'; 
         }
   
         if (response.results[i].hasOwnProperty('email')) {
-          emailCell.innerHTML = response.results[i].email;
+          emailCell.innerHTML = response.results.email;
         } else {
           emailCell.innerHTML = 'N/A'; 
         }
