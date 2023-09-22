@@ -177,8 +177,8 @@ function loadContacts() {
 
           firstNameCell.innerHTML = contact.name;
           lastNameCell.innerHTML = contact.name;
-          emailCell.innerHTML = contact.email;
-          phoneNumberCell.innerHTML = contact.phone;
+          emailCell.innerHTML = jsonObject.results.email;
+          phoneNumberCell.innerHTML = jsonObject.results.phone;
 
           let editBtn = document.createElement("button");
           editBtn.classList.add("open-button");
