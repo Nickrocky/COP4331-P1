@@ -143,6 +143,84 @@ function readCookie() {
   }
 }
 
+/*
+function loadContacts() {
+  let table = document.getElementById("dataTable");
+  table.innerHTML = "";
+
+  let url = urlBase + "/SearchContact." + extension;
+
+  let searchPayload = {
+    name: "",     
+    userId: userId, 
+    phone: "",      
+    email: "",      
+  };
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      let response = JSON.parse(xhr.responseText);
+
+      if (response.error) {
+        console.error(response.error);
+      } else {
+        let contacts = response.results;
+        let rowCount = 1; 
+
+        for (let contact of contacts) {
+          let row = table.insertRow(rowCount++);
+          let fullName = contact.name.split(" "); 
+          let firstName = fullName[0]; 
+          let lastName = fullName.slice(1).join(" "); 
+          let firstNameCell = row.insertCell(0);
+          let lastNameCell = row.insertCell(1);
+
+          firstNameCell.innerHTML = firstName;
+          lastNameCell.innerHTML = lastName;
+
+          let emailCell = row.insertCell(2);
+          let phoneNumberCell = row.insertCell(3);
+          let actionsCell = row.insertCell(4);
+
+          emailCell.innerHTML = contact.email;
+          phoneNumberCell.innerHTML = contact.phone_number;
+
+          let editBtn = document.createElement("button");
+          editBtn.classList.add("open-button");
+          editBtn.style.height = "40px";
+          editBtn.style.width = "70px";
+          editBtn.style.top = "0px";
+          editBtn.innerHTML = "Edit";
+          editBtn.style.position = "relative";
+          editBtn.style.left = "2%";
+
+          editContact(editBtn);
+
+          let deleteBtn = document.createElement("button");
+          deleteBtn.classList.add("open-button");
+          deleteBtn.style.height = "40px";
+          deleteBtn.style.width = "80px";
+          deleteBtn.style.top = "0px";
+          deleteBtn.innerHTML = "Delete";
+          deleteBtn.style.position = "relative";
+          deleteBtn.style.left = "2%";
+
+          deleteContact(deleteBtn);
+
+          actionsCell.appendChild(editBtn);
+          actionsCell.appendChild(deleteBtn);
+        }
+      }
+    }
+  };
+
+  xhr.send(JSON.stringify(searchPayload));
+}*/
+  
 function addContact() {
   let firstNameValue = document.getElementById("fName").value;
   let lastNameValue = document.getElementById("lName").value;
