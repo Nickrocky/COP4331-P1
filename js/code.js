@@ -145,11 +145,11 @@ function readCookie() {
 
 function loadContacts() {
   let table = document.getElementById("dataTable");
-  // table.innerHTML = "";
+ //table.innerHTML = ""; 
 
   let url = urlBase + "/SearchContact." + extension;
 
-  let searchPayload = {
+  let jsonPayload = {
     name: "",
     userId: userId,
   };
@@ -166,25 +166,23 @@ function loadContacts() {
         console.error(response.error);
       } else {
         let contacts = response.results;
-        let rowCount = 1;
 
         for (let contact of contacts) {
-          let row = table.insertRow(rowCount++);
+          let row = table.insertRow();
+
           let fullName = contact.name.split(" ");
           let firstName = fullName[0];
           let lastName = fullName.slice(1).join(" ");
+
           let firstNameCell = row.insertCell(0);
           let lastNameCell = row.insertCell(1);
+          let emailCell = row.insertCell(2);
+          let phoneNumberCell = row.insertCell(3);
 
           firstNameCell.innerHTML = firstName;
           lastNameCell.innerHTML = lastName;
-
-          let emailCell = row.insertCell(2);
-          let phoneNumberCell = row.insertCell(3);
-          let actionsCell = row.insertCell(4);
-
           emailCell.innerHTML = contact.email;
-          phoneNumberCell.innerHTML = contact.phone_number;
+          phoneNumberCell.innerHTML = contact.phone;
 
           let editBtn = document.createElement("button");
           editBtn.classList.add("open-button");
@@ -215,7 +213,7 @@ function loadContacts() {
     }
   };
 
-  xhr.send(JSON.stringify(searchPayload));
+  xhr.send(JSON.stringify(jsonPayload));
 }
 
 function addContact() {
