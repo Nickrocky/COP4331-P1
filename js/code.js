@@ -145,7 +145,7 @@ function readCookie() {
 
 function loadContacts() {
   let table = document.getElementById("dataTable");
- //table.innerHTML = ""; 
+  // table.innerHTML = "";
 
   let url = urlBase + "/SearchContact." + extension;
 
@@ -161,50 +161,46 @@ function loadContacts() {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       let response = JSON.parse(xhr.responseText);
-        let contacts = response.results;
-        for (let contact of contacts) {
-          let row = table.insertRow();
+      let contacts = response.results;
+      for (let i = 0; i < contacts.length; i++) {
+        let row = table.insertRow();
 
-          //let fullName = contact.name.split(" ");
-          //let firstName = fullName[0];
-          //let lastName = fullName.slice(1).join(" ");
+        let firstNameCell = row.insertCell(0);
+        let lastNameCell = row.insertCell(1);
+        let emailCell = row.insertCell(2);
+        let phoneNumberCell = row.insertCell(3);
+        let actionsCell = row.insertCell(4);
 
-          let firstNameCell = row.insertCell(0);
-          let lastNameCell = row.insertCell(1);
-          let emailCell = row.insertCell(2);
-          let phoneNumberCell = row.insertCell(3);
-          let actionsCell = row.insertCell(4);
+        firstNameCell.innerHTML = contacts[i].name;
+        lastNameCell.innerHTML = contacts[i].name;
+        emailCell.innerHTML = contacts[i].email;
+        phoneNumberCell.innerHTML = contacts[i].phone;
 
-          firstNameCell.innerHTML = contact.name;
-          lastNameCell.innerHTML = contact.name;
-          emailCell.innerHTML = contact.email;
-          phoneNumberCell.innerHTML = contact.phone;
+        let editBtn = document.createElement("button");
+        editBtn.classList.add("open-button");
+        editBtn.style.height = "40px";
+        editBtn.style.width = "70px";
+        editBtn.style.top = "0px";
+        editBtn.innerHTML = "Edit";
+        editBtn.style.position = "relative";
+        editBtn.style.left = "2%";
 
-          let editBtn = document.createElement("button");
-          editBtn.classList.add("open-button");
-          editBtn.style.height = "40px";
-          editBtn.style.width = "70px";
-          editBtn.style.top = "0px";
-          editBtn.innerHTML = "Edit";
-          editBtn.style.position = "relative";
-          editBtn.style.left = "2%";
+        editContact(editBtn);
 
-          editContact(editBtn);
+        let deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("open-button");
+        deleteBtn.style.height = "40px";
+        deleteBtn.style.width = "80px";
+        deleteBtn.style.top = "0px";
+        deleteBtn.innerHTML = "Delete";
+        deleteBtn.style.position = "relative";
+        deleteBtn.style.left = "2%";
 
-          let deleteBtn = document.createElement("button");
-          deleteBtn.classList.add("open-button");
-          deleteBtn.style.height = "40px";
-          deleteBtn.style.width = "80px";
-          deleteBtn.style.top = "0px";
-          deleteBtn.innerHTML = "Delete";
-          deleteBtn.style.position = "relative";
-          deleteBtn.style.left = "2%";
+        deleteContact(deleteBtn);
 
-          deleteContact(deleteBtn);
-
-          actionsCell.appendChild(editBtn);
-          actionsCell.appendChild(deleteBtn);
-        }
+        actionsCell.appendChild(editBtn);
+        actionsCell.appendChild(deleteBtn);
+      }
     }
   };
 
