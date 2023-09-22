@@ -161,8 +161,7 @@ function loadContacts() {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       let response = JSON.parse(xhr.responseText);
-      let contacts = response.results;
-      for (let i = 0; i < contacts.length; i++) {
+      for (let i = 0; i < response.results.length; i++) {
         let row = table.insertRow();
 
         let firstNameCell = row.insertCell(0);
@@ -171,10 +170,10 @@ function loadContacts() {
         let phoneNumberCell = row.insertCell(3);
         let actionsCell = row.insertCell(4);
 
-        firstNameCell.innerHTML = contacts[i].name;
-        lastNameCell.innerHTML = contacts[i].name;
-        emailCell.innerHTML = contacts[i].email;
-        phoneNumberCell.innerHTML = contacts[i].phone;
+        firstNameCell.innerHTML = response.results.[i].name;
+        lastNameCell.innerHTML = response.results.[i].name;
+        emailCell.innerHTML = response.results.[i].email;
+        phoneNumberCell.innerHTML = response.results.[i].phone;
 
         let editBtn = document.createElement("button");
         editBtn.classList.add("open-button");
@@ -206,6 +205,7 @@ function loadContacts() {
 
   xhr.send(JSON.stringify(jsonPayload));
 }
+
 
 function addContact() {
   let firstNameValue = document.getElementById("fName").value;
