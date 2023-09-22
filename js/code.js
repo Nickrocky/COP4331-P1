@@ -143,18 +143,15 @@ function readCookie() {
   }
 }
 
-/*
 function loadContacts() {
   let table = document.getElementById("dataTable");
-  table.innerHTML = "";
+  // table.innerHTML = "";
 
   let url = urlBase + "/SearchContact." + extension;
 
   let searchPayload = {
-    name: "",     
-    userId: userId, 
-    phone: "",      
-    email: "",      
+    name: "",
+    userId: userId,
   };
 
   let xhr = new XMLHttpRequest();
@@ -169,13 +166,13 @@ function loadContacts() {
         console.error(response.error);
       } else {
         let contacts = response.results;
-        let rowCount = 1; 
+        let rowCount = 1;
 
         for (let contact of contacts) {
           let row = table.insertRow(rowCount++);
-          let fullName = contact.name.split(" "); 
-          let firstName = fullName[0]; 
-          let lastName = fullName.slice(1).join(" "); 
+          let fullName = contact.name.split(" ");
+          let firstName = fullName[0];
+          let lastName = fullName.slice(1).join(" ");
           let firstNameCell = row.insertCell(0);
           let lastNameCell = row.insertCell(1);
 
@@ -219,8 +216,8 @@ function loadContacts() {
   };
 
   xhr.send(JSON.stringify(searchPayload));
-}*/
-  
+}
+
 function addContact() {
   let firstNameValue = document.getElementById("fName").value;
   let lastNameValue = document.getElementById("lName").value;
