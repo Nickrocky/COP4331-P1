@@ -170,11 +170,11 @@ function loadContacts() {
         let phoneNumberCell = row.insertCell(3);
         let actionsCell = row.insertCell(4);
 
-        firstNameCell.innerHTML = response.results.[i].name;
-        lastNameCell.innerHTML = response.results.[i].name;
-        emailCell.innerHTML = response.results.[i].email;
-        phoneNumberCell.innerHTML = response.results.[i].phone;
-
+        firstNameCell.innerHTML = response.results[i].name;
+        lastNameCell.innerHTML = response.results[i].name;
+        emailCell.innerHTML = response.results[i].email;
+        phoneNumberCell.innerHTML = response.results[i].phone;
+        
         let editBtn = document.createElement("button");
         editBtn.classList.add("open-button");
         editBtn.style.height = "40px";
