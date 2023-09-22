@@ -161,26 +161,21 @@ function loadContacts() {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       let response = JSON.parse(xhr.responseText);
-
-      if (response.error) {
-        console.error(response.error);
-      } else {
         let contacts = response.results;
-
         for (let contact of contacts) {
           let row = table.insertRow();
 
-          let fullName = contact.name.split(" ");
-          let firstName = fullName[0];
-          let lastName = fullName.slice(1).join(" ");
+          //let fullName = contact.name.split(" ");
+          //let firstName = fullName[0];
+          //let lastName = fullName.slice(1).join(" ");
 
           let firstNameCell = row.insertCell(0);
           let lastNameCell = row.insertCell(1);
           let emailCell = row.insertCell(2);
           let phoneNumberCell = row.insertCell(3);
 
-          firstNameCell.innerHTML = firstName;
-          lastNameCell.innerHTML = lastName;
+          firstNameCell.innerHTML = contact.name;
+          lastNameCell.innerHTML = contact.name;
           emailCell.innerHTML = contact.email;
           phoneNumberCell.innerHTML = contact.phone;
 
@@ -209,7 +204,6 @@ function loadContacts() {
           actionsCell.appendChild(editBtn);
           actionsCell.appendChild(deleteBtn);
         }
-      }
     }
   };
 
