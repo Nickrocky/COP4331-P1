@@ -163,7 +163,7 @@ function loadContacts() {
       let response = JSON.parse(xhr.responseText);
         let contacts = response.results;
         for (let contact of contacts) {
-          let row = table.insertRow();
+          let row = table.insertRow(rowCount++);
 
           //let fullName = contact.name.split(" ");
           //let firstName = fullName[0];
@@ -173,6 +173,7 @@ function loadContacts() {
           let lastNameCell = row.insertCell(1);
           let emailCell = row.insertCell(2);
           let phoneNumberCell = row.insertCell(3);
+          let actionsCell = row.insertCell(4);
 
           firstNameCell.innerHTML = contact.name;
           lastNameCell.innerHTML = contact.name;
