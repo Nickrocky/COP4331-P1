@@ -170,10 +170,29 @@ function loadContacts() {
         let phoneNumberCell = row.insertCell(3);
         let actionsCell = row.insertCell(4);
 
-        firstNameCell.innerHTML = response.results[i].name;
-        lastNameCell.innerHTML = response.results[i].name;
-        emailCell.innerHTML = response.results[i].email;
-        phoneNumberCell.innerHTML = response.results[i].phone;
+        if (response.results[i].hasOwnProperty('name')) {
+          firstNameCell.innerHTML = response.results[i].firstName;
+        } else {
+          firstNameCell.innerHTML = 'N/A'; 
+        }
+  
+        if (response.results[i].hasOwnProperty('name')) {
+          lastNameCell.innerHTML = response.results[i].lastName;
+        } else {
+          lastNameCell.innerHTML = 'N/A'; 
+        }
+  
+        if (response.results[i].hasOwnProperty('email')) {
+          emailCell.innerHTML = response.results[i].email;
+        } else {
+          emailCell.innerHTML = 'N/A'; 
+        }
+  
+        if (response.results[i].hasOwnProperty('phone')) {
+          phoneNumberCell.innerHTML = response.results[i].phone;
+        } else {
+          phoneNumberCell.innerHTML = 'N/A'; 
+        }
         
         let editBtn = document.createElement("button");
         editBtn.classList.add("open-button");
