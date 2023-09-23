@@ -161,6 +161,10 @@ function loadContacts() {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       let response = JSON.parse(xhr.responseText);
+
+      console.log(response);
+      console.log(response.results);
+
       for (let i = 0; i < response.results.length; i++) {
         let row = table.insertRow();
 
@@ -170,30 +174,30 @@ function loadContacts() {
         let phoneNumberCell = row.insertCell(3);
         let actionsCell = row.insertCell(4);
 
-         if (response.results[i].hasOwnProperty('name')) {
+        if (response.results[i].hasOwnProperty("name")) {
           firstNameCell.innerHTML = response.results.firstName;
         } else {
-          firstNameCell.innerHTML = 'N/A'; 
+          firstNameCell.innerHTML = "N/A";
         }
-  
-        if (response.results[i].hasOwnProperty('name')) {
+
+        if (response.results[i].hasOwnProperty("name")) {
           lastNameCell.innerHTML = response.results[i].lastName;
         } else {
-          lastNameCell.innerHTML = 'N/A'; 
+          lastNameCell.innerHTML = "N/A";
         }
-  
-        if (response.results[i].hasOwnProperty('email')) {
+
+        if (response.results[i].hasOwnProperty("email")) {
           emailCell.innerHTML = response.results[i].email;
         } else {
-          emailCell.innerHTML = 'N/A'; 
+          emailCell.innerHTML = "N/A";
         }
-  
-        if (response.results[i].hasOwnProperty('phone')) {
+
+        if (response.results[i].hasOwnProperty("phone")) {
           phoneNumberCell.innerHTML = response.results[i].phone;
         } else {
-          phoneNumberCell.innerHTML = 'N/A'; 
+          phoneNumberCell.innerHTML = "N/A";
         }
-        
+
         let editBtn = document.createElement("button");
         editBtn.classList.add("open-button");
         editBtn.style.height = "40px";
@@ -224,7 +228,6 @@ function loadContacts() {
 
   xhr.send(JSON.stringify(jsonPayload));
 }
-
 
 function addContact() {
   let firstNameValue = document.getElementById("fName").value;
