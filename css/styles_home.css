@@ -21,12 +21,14 @@ body {
 
 #loginResult,
 #signupResult {
-  color: red;
+  color: #ffffff;
   position: relative;
   bottom: 38%;
-  left: 37%;
+  left: 27%;
   font-size: 30px;
+  text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #ffffff 0px 0px 75px, 2px 2px 13px rgba(206,89,55,0.56);
 }
+
 
 .site-logo {
   scale: 50%;
