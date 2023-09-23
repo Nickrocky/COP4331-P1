@@ -174,9 +174,15 @@ function loadContacts() {
         let phoneNumberCell = row.insertCell(3);
         let actionsCell = row.insertCell(4);
 
+        var fullName = response.results[i];
 
-        firstNameCell.innerHTML = response.results[i];
-        lastNameCell.innerHTML = response.results[i].lastName;
+        var names = fullName.split(' ');
+
+        var firstName = names[0];
+        var lastName = names[1];
+
+        firstNameCell.innerHTML = firstName;
+        lastNameCell.innerHTML = lastName;
         emailCell.innerHTML = response.results[i].email;
         phoneNumberCell.innerHTML = response.results[i].phone;
  
