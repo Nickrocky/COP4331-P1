@@ -174,7 +174,7 @@ function loadContacts() {
         let phoneNumberCell = row.insertCell(3);
         let actionsCell = row.insertCell(4);
 
-        var fullName = response.results[i];
+        var fullName = response.results[i].Name;
 
         var names = fullName.split(' ');
 
@@ -183,8 +183,8 @@ function loadContacts() {
 
         firstNameCell.innerHTML = firstName;
         lastNameCell.innerHTML = lastName;
-        emailCell.innerHTML = response.results[i].email;
-        phoneNumberCell.innerHTML = response.results[i].phone;
+        emailCell.innerHTML = response.results[i].Email;
+        phoneNumberCell.innerHTML = response.results[i].Phone;
  
 
         let editBtn = document.createElement("button");
