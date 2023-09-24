@@ -1,4 +1,4 @@
-const urlBase = "http://138.197.64.137/LAMPAPI";
+const urlBase = "http://contactus.digital/LAMPAPI";
 const extension = "php";
 
 let table = document.getElementById("dataTable");
@@ -176,7 +176,7 @@ function loadContacts() {
 
         var fullName = response.results[i++];
 
-        var names = fullName.split(' ');
+        var names = fullName.split(" ");
 
         var firstName = names[0];
         var lastName = names[1];
@@ -185,7 +185,6 @@ function loadContacts() {
         lastNameCell.innerHTML = lastName;
         emailCell.innerHTML = response.results[i++];
         phoneNumberCell.innerHTML = response.results[i++];
- 
 
         let editBtn = document.createElement("button");
         editBtn.classList.add("open-button");
