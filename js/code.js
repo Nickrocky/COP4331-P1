@@ -162,9 +162,6 @@ function loadContacts() {
     if (xhr.readyState === 4 && xhr.status === 200) {
       let response = JSON.parse(xhr.responseText);
 
-      console.log(response);
-      console.log(response.results);
-
       for (let i = 0; i < response.results.length; i++) {
         let row = table.insertRow();
 
@@ -174,17 +171,23 @@ function loadContacts() {
         let phoneNumberCell = row.insertCell(3);
         let actionsCell = row.insertCell(4);
 
-        var fullName = response.results[i++];
+        let fullName = response.results[i++];
 
-        var names = fullName.split(" ");
+        let names = fullName.split(" ");
 
-        var firstName = names[0];
-        var lastName = names[1];
+        let firstName = names[0];
+        let lastName = names[1];
 
+        console.log("value of i at start of loop: " + i);
+
+        console.log("First name: " + firstName);
+        console.log("Last name: " + lastName);
         firstNameCell.innerHTML = firstName;
         lastNameCell.innerHTML = lastName;
-        emailCell.innerHTML = response.results[i++];
         phoneNumberCell.innerHTML = response.results[i++];
+        console.log("Phone number: " + phoneNumberCell);
+        emailCell.innerHTML = response.results[i++];
+        console.log("Email: " + emailCell);
 
         let editBtn = document.createElement("button");
         editBtn.classList.add("open-button");
