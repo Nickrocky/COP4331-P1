@@ -185,9 +185,9 @@ function loadContacts() {
         firstNameCell.innerHTML = firstName;
         lastNameCell.innerHTML = lastName;
         phoneNumberCell.innerHTML = response.results[i++];
-        console.log("Phone number: " + phoneNumberCell);
-        emailCell.innerHTML = response.results[i++];
-        console.log("Email: " + emailCell);
+        console.log("Phone number: " + phoneNumberCell.innerHTML);
+        emailCell.innerHTML = response.results[i];
+        console.log("Email: " + emailCell.innerHTML);
 
         let editBtn = document.createElement("button");
         editBtn.classList.add("open-button");
