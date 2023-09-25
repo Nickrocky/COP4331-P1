@@ -246,13 +246,12 @@ function addContact() {
   try {
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("contactAddResult").innerHTML =
-          "Contact has been added";
+        console.log("Contact has been added");
       }
     };
     xhr.send(jsonPayload);
   } catch (err) {
-    document.getElementById("contactAddResult").innerHTML = err.message;
+    console.log("Contact has not been added");
   }
 
   let rowCount = table.rows.length;
