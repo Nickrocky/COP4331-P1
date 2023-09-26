@@ -247,6 +247,10 @@ function addContact() {
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         console.log("Contact has been added");
+        document.getElementById("fName").value = "";
+        document.getElementById("lName").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("phoneNumber").value = "";
       }
     };
     xhr.send(jsonPayload);
