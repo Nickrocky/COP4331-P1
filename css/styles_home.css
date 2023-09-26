@@ -4,7 +4,7 @@ body {
   background-image: url("../images/home.png");
   background-size: cover;
   background-attachment: fixed;
-  animation: moveIt 1200s linear infinite;
+  animation: moveIt 1000s linear infinite;
   overflow: hidden;
 }
 
