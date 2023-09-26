@@ -4,7 +4,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  animation: moveIt 700s linear infinite;
+  animation: moveIt 600s linear infinite;
   overflow: hidden;
 }
 
