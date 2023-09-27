@@ -5,21 +5,29 @@ let slider = document.querySelector(".slider");
 let formSection = document.querySelector(".form-section");
 let loginBox = document.querySelector(".login-box");
 let signupBox = document.querySelector(".signup-box");
+let signupResult = document.getElementById("signupResult");
+let loginResult = document.getElementById("loginResult");
 
- 
 register.addEventListener("click", () => {
-    slider.classList.add("moveslider");
-    formSection.classList.add("form-section-move");
-     
-    loginBox.style.visibility = "hidden";
-    signupBox.style.visibility = "visible";
-;
+  slider.classList.add("moveslider");
+  formSection.classList.add("form-section-move");
+
+  loginBox.style.visibility = "hidden";
+  signupBox.style.visibility = "visible";
+
+  if (loginResult.innerHTML !== "") {
+    loginResult.innerHTML = "";
+  }
 });
- 
+
 login.addEventListener("click", () => {
-    slider.classList.remove("moveslider");
-    formSection.classList.remove("form-section-move");
-    
-    signupBox.style.visibility = "hidden";
-    loginBox.style.visibility = "visible";
+  slider.classList.remove("moveslider");
+  formSection.classList.remove("form-section-move");
+
+  signupBox.style.visibility = "hidden";
+  loginBox.style.visibility = "visible";
+
+  if (signupResult.innerHTML !== "") {
+    signupResult.innerHTML = "";
+  }
 });
