@@ -477,7 +477,6 @@ function searchContact() {
       }
     }
   }
-  closeSearchForm();
 }
 
 // function openSearchForm() {
@@ -502,7 +501,7 @@ function clearContactSearch() {
     tr[i].style.display = "";
   }
 
-  document.getElementById("mySearchInput").innerHTML = "";
+  document.getElementById("mySearchInput").value = "";
 }
 
 function doLogout() {
