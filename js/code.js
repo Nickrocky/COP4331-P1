@@ -145,7 +145,6 @@ function readCookie() {
 
 function loadContacts() {
   let table = document.getElementById("dataTable");
-  // table.innerHTML = "";
 
   let url = urlBase + "/SearchContact." + extension;
 
@@ -178,16 +177,11 @@ function loadContacts() {
         let firstName = names[0];
         let lastName = names[1];
 
-        console.log("value of i at start of loop: " + i);
-
-        console.log("First name: " + firstName);
-        console.log("Last name: " + lastName);
         firstNameCell.innerHTML = firstName;
         lastNameCell.innerHTML = lastName;
         phoneNumberCell.innerHTML = response.results[i++];
-        console.log("Phone number: " + phoneNumberCell.innerHTML);
+
         emailCell.innerHTML = response.results[i];
-        console.log("Email: " + emailCell.innerHTML);
 
         let editBtn = document.createElement("button");
         editBtn.classList.add("open-button");
@@ -559,29 +553,3 @@ function searchConnection(button) {
 }
 
 // ------------ END OF CONTACTS.HTML SECTION ------------
-
-// We can use these to help connect our add/search contacts to backend
-function addColor() {
-  let newColor = document.getElementById("colorText").value;
-  document.getElementById("colorAddResult").innerHTML = "";
-
-  let tmp = { color: newColor, userId, userId };
-  let jsonPayload = JSON.stringify(tmp);
-
-  let url = urlBase + "/AddColor." + extension;
-
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", url, true);
-  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-  try {
-    xhr.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("colorAddResult").innerHTML =
-          "Color has been added";
-      }
-    };
-    xhr.send(jsonPayload);
-  } catch (err) {
-    document.getElementById("colorAddResult").innerHTML = err.message;
-  }
-}
