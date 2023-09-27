@@ -225,7 +225,7 @@ definitions:
         example: "carl@ucf.edu"
       userId:
         type: integer
-        example: "7"
+        example: 7
   
   Update:
     type: object
@@ -250,7 +250,7 @@ definitions:
         example: "daisy@gmail.com"
       userId:
         type: integer
-        example: "5"
+        example: 5
   
   Delete:
     type: object
