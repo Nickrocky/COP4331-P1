@@ -480,17 +480,17 @@ function searchContact() {
   closeSearchForm();
 }
 
-function openSearchForm() {
-  document.getElementById("mySearchForm").style.display = "block";
-  var overlay = document.getElementById("overlay");
-  overlay.classList.add("active"); // Add the active class to show the overlay with an ease-in effect
-}
+// function openSearchForm() {
+//   document.getElementById("mySearchForm").style.display = "block";
+//   var overlay = document.getElementById("overlay");
+//   overlay.classList.add("active"); // Add the active class to show the overlay with an ease-in effect
+// }
 
-function closeSearchForm() {
-  document.getElementById("mySearchForm").style.display = "none";
-  var overlay = document.getElementById("overlay");
-  overlay.classList.remove("active"); // Remove the active class to hide the overlay with an ease-in effect
-}
+// function closeSearchForm() {
+//   document.getElementById("mySearchForm").style.display = "none";
+//   var overlay = document.getElementById("overlay");
+//   overlay.classList.remove("active"); // Remove the active class to hide the overlay with an ease-in effect
+// }
 
 // clear search button
 function clearContactSearch() {
