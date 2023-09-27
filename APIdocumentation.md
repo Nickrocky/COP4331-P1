@@ -214,7 +214,7 @@ definitions:
     - email
     - userId
     properties:
-      firstname:
+      name:
         type: string 
         example: "carl"
       phone:
