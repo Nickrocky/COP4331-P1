@@ -261,7 +261,7 @@ definitions:
         type: string
         example: "Joe"
         
-host: 138.197.64.137
+host: contactus.digital
 basePath: /LAMPAPI
 schemes:
 - http
