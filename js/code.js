@@ -501,6 +501,8 @@ function clearContactSearch() {
   for (i = 0; i < tr.length; i++) {
     tr[i].style.display = "";
   }
+
+  document.getElementById("mySearchInput").innerHTML = "";
 }
 
 function doLogout() {
