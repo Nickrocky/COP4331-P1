@@ -12,9 +12,12 @@
 	} 
 	else
 	{
-        $stmt = $conn->prepare("select Name, Phone, Email from Contacts where Name like ? and UserID=?");
-		$contactName = "%" . $inData["search"] . "%";
-		$stmt->bind_param("si", $contactName, $inData["userId"]);
+        $stmt = $conn->prepare("select Name, Phone, Email from Contacts where (Name like ? or Phone like ? or Email like ?) and UserID=?");
+	$name = "%" . $inData["search"] . "%";
+        $phone = "%" . $inData["search"] . "%";
+        $email = "%" . $inData["search"] . "%";
+        
+		$stmt->bind_param("sssi", $name, $phone, $email,  $inData["userId"]);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
@@ -66,3 +69,5 @@
 	}
 	
 ?>
+
+	
